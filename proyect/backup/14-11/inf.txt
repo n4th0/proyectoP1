@@ -1,0 +1,7 @@
+
+14-11, 
+
+    enemigo dinámico y colisiones
+
+    --->creación de diversos mapas y save zone (zona de victoria)
+

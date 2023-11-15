@@ -3,10 +3,13 @@
 
 #define tamañox 10
 #define tamañoy 30
+
 #define POSICION_INICIAL_PLMANX 1
 #define POSICION_INICIAL_PLMANY 27
+
 #define POSICION_INICIAL_SAVEZONEX 1
 #define POSICION_INICIAL_SAVEZONEY 3
+
 
 void dibujar_tablero(int tablero[tamañox][tamañoy]){
     printf("\n");
@@ -14,6 +17,8 @@ void dibujar_tablero(int tablero[tamañox][tamañoy]){
         printf("          ");
         for (int j =0; j<tamañoy; j++) {
 
+                // printf( "\x1b[33m" "\x1b[43m"" " "\x1b[0m");
+                
                 switch (tablero[i][j]) {
                     case 0:
                         //nada
@@ -46,6 +51,29 @@ void dibujar_tablero(int tablero[tamañox][tamañoy]){
     }
 }
 
+/*
+ * concatenado a la pregunta a la profesora xd
+ * para aprender a inicializar el tablero, 
+ * (args el tablero ) return un tablero con valores
+ *
+int  mapa1(int tablero[10][15]){
+
+    for (int i = 0; i<10; i++) {
+
+        for (int j = 0; j<15; j++) {
+            if(i == 0 || i == 9 || j ==0 || j == 14){
+                tablero[i][j]=1;
+
+            }else {
+                tablero[i][j]=0;
+            }
+        
+        }
+    
+    }
+    return tablero[10][15];
+}
+*/
 
 char preguntardireccion(){
     char direccion;
@@ -56,43 +84,6 @@ char preguntardireccion(){
     }
     while (direccion!='w'&&direccion!='d'&&direccion!='s'&&direccion!='a');
     return direccion;
-}
-void mapa1(int tablero2[tamañox][tamañoy]){
-
-    // inicializa el tablero, cuando se puedan usar arrays bien 
-    // se hará en una función a parte (preguntar a la profesora)
-    for (int i = 0; i<10; i++) {
-        for (int j = 0; j<30; j++) {
-
-            if(i == 0 || i == 9 || j ==0 || j==1 || j == 28 || j==29){
-                tablero2[i][j]=1;
-            }else{
-                if (  j==13 ||  j==19 || j== 25  ) {
-                    if (i>0 && i<8) {
-                        tablero2[i][j]=1;
-                    }
-                    else {
-                        tablero2[i][j]=0;
-                    }
-                }else if (  j == 16 || j== 22 ) {
-
-                    if (i>1 && i<=8) {
-                        tablero2[i][j]=1;
-                    }
-                    else {
-                        tablero2[i][j]=0;
-                    }
-                }else {
-                    
-                    tablero2[i][j]=0;
-                }
-                
-                // tablero2[i][j]=0;
-            }
-        }
-    }
-
-    
 }
 
 
@@ -117,9 +108,9 @@ int main(){
     int game =1;
 
     /*
-     * ejemplo de 
      opción poco elegante de inicialización del tablero 
     int tablero[10][15]={
+
         1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
         1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
@@ -133,17 +124,24 @@ int main(){
     };
     */
 
-    // hay que hacer un menú de selección (decidir cuantos mapas más hacer...)
-    //
+
+    // inicializa el tablero, cuando se puedan usar arrays bien 
+    // se hará en una función a parte (preguntar a la profesora)
+
+
     //hay que hacer más mapas, es decir funciones en las que se necesita un array y se inicializa 
     // con valores 1 y 0 ()
     // uno tiene que ser un especial navidad
     // otro con referencias a plman ()
     //
-    
-    int estado = 1;
-    do  {
 
+    
+
+
+    int estado = 1;
+    
+
+    do  {
     
         printf("\e[1;1H\e[2J");
         // se le podrían poner colores a esto 
@@ -153,7 +151,39 @@ int main(){
         printf("      ");
         printf("--------------------------------------\n");
     
-        mapa1(tablero2);
+
+        // inicializa el tablero, cuando se puedan usar arrays bien 
+        // se hará en una función a parte (preguntar a la profesora)
+        for (int i = 0; i<10; i++) {
+            for (int j = 0; j<30; j++) {
+
+                if(i == 0 || i == 9 || j ==0 || j==1 || j == 28 || j==29){
+                    tablero2[i][j]=1;
+                }else{
+                    if (  j==13 ||  j==19 || j== 25  ) {
+                        if (i>0 && i<8) {
+                            tablero2[i][j]=1;
+                        }
+                        else {
+                            tablero2[i][j]=0;
+                        }
+                    }else if (  j == 16 || j== 22 ) {
+
+                        if (i>1 && i<=8) {
+                            tablero2[i][j]=1;
+                        }
+                        else {
+                            tablero2[i][j]=0;
+                        }
+                    }else {
+                        
+                        tablero2[i][j]=0;
+                    }
+                    
+                    // tablero2[i][j]=0;
+                }
+            }
+        }
 
         // indica la posicion de plman
         tablero2[posx][posy1]=3;
@@ -168,7 +198,7 @@ int main(){
         tablero2[posSx][posSy]=4;
 
         dibujar_tablero(tablero2);
-        // esto se podría poner en una función (hay que esperar que la profesora nos pase la librería)
+        // esto se podría poner en una función 
         // actualización de plman 
         switch (preguntardireccion()) {
             case 'w':

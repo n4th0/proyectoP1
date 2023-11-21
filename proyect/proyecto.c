@@ -57,10 +57,15 @@ char preguntardireccion(){
         noecho();
     do{
         direccion = getch();
-        if (direccion=='\n') {
-            break;
-        
+        if (direccion=='p') {
+            printf("\e[1;1H\e[2J");
+            printf("el juego ha sido interrumpido\n");
+            exit(0);
         }
+        if (direccion!='w'&&direccion!='d'&&direccion!='s'&&direccion!='a'){
+            break;
+        }
+
         endwin();
     }
     while (direccion!='w'&&direccion!='d'&&direccion!='s'&&direccion!='a');
@@ -223,6 +228,7 @@ int main(){
                 break;
         }
 
+
         //actualización enemigo 1
         if (estado==1) {
             posex++;
@@ -260,11 +266,9 @@ int main(){
     if (game==2) {
         printf("Te han matado los enemigos!!!\n");
     
-    }
-    if (game==3) {
+    }else if (game==3) {
         printf("Has llegado a salvo, enhorabuena!!!\n");
     
     }
-
     
 }

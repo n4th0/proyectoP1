@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <ncurses.h>
 #include <stdlib.h>
+// el tamaño así esta bien? o es demasiado pequeño?
 
-#define tamañox 10
-#define tamañoy 30
+#define tamañox 27
+#define tamañoy 100
 #define POSICION_INICIAL_PLMANX 1
 #define POSICION_INICIAL_PLMANY 27
 #define POSICION_INICIAL_SAVEZONEX 1
@@ -46,13 +48,20 @@ void dibujar_tablero(int tablero[tamañox][tamañoy]){
     }
 }
 
-
 char preguntardireccion(){
     char direccion;
     // esto funcionaba regular, imprime dos veces la pregunta
-    printf("\ndime la dirección a la que quieres ir: ");
+        initscr();
+        raw();
+        keypad(stdscr, true);
+        noecho();
     do{
-        scanf("%c",&direccion);
+        direccion = getch();
+        if (direccion=='\n') {
+            break;
+        
+        }
+        endwin();
     }
     while (direccion!='w'&&direccion!='d'&&direccion!='s'&&direccion!='a');
     return direccion;
@@ -61,44 +70,58 @@ void mapa1(int tablero2[tamañox][tamañoy]){
 
     // inicializa el tablero, cuando se puedan usar arrays bien 
     // se hará en una función a parte (preguntar a la profesora)
-    for (int i = 0; i<10; i++) {
-        for (int j = 0; j<30; j++) {
-
-            if(i == 0 || i == 9 || j ==0 || j==1 || j == 28 || j==29){
+    for (int i = 0; i<tamañox; i++) {
+        for (int j = 0; j<tamañoy; j++) {
+            if (j==0 | j==tamañoy-1 | i ==0 | i==tamañox-1) {
                 tablero2[i][j]=1;
-            }else{
-                if (  j==13 ||  j==19 || j== 25  ) {
-                    if (i>0 && i<8) {
-                        tablero2[i][j]=1;
-                    }
-                    else {
-                        tablero2[i][j]=0;
-                    }
-                }else if (  j == 16 || j== 22 ) {
-
-                    if (i>1 && i<=8) {
-                        tablero2[i][j]=1;
-                    }
-                    else {
-                        tablero2[i][j]=0;
-                    }
-                }else {
-                    
-                    tablero2[i][j]=0;
-                }
-                
-                // tablero2[i][j]=0;
+            
+            }else {
+            
+                tablero2[i][j]=0;
             }
         }
     }
+}
 
+int menumapa(){
+    
+    printf("\e[1;1H\e[2J");
+    printf("          ");
+    printf("      MENU MAPA\n");
+    printf("          ");
+    printf("1.- mapa 1");
+    printf("          ");
+    printf("2.- mapa 1\n");
+    printf("          ");
+    printf("3.- salir");
+
+
+}
+
+int menu(){
+    
+    int elección1;
+    printf("          ");
+    printf("      MENU\n");
+    printf("          ");
+    printf("1.- elegir mapa ");
+    printf("          ");
+    printf("2.- mapa aleatorio\n");
+    printf("          ");
+    printf("0.- salir");
+    scanf(" %d", &elección1);
+
+    switch (elección1) {
+        case 1:
+            return menumapa();
+    }
     
 }
 
 
 int main(){
 
-
+    char c=' ';
     // posición inicial de plman
     int posx=POSICION_INICIAL_PLMANX,posy=POSICION_INICIAL_PLMANY;
     int posy1=posy-1;
@@ -109,7 +132,7 @@ int main(){
     int posSx=POSICION_INICIAL_SAVEZONEX,posSy=POSICION_INICIAL_SAVEZONEY;
     int posSy1=posSy-1;
 
-    int tablero2[10][30];
+    int tablero2[tamañox][tamañoy];
 
     // estado de game, cambiar para terminar el juego 
     // segun el estado final (si ha ganado ) enviar un mensaje
@@ -142,16 +165,11 @@ int main(){
     //
     
     int estado = 1;
-    do  {
 
+    do  {
     
+        mapa1(tablero2);
         printf("\e[1;1H\e[2J");
-        // se le podrían poner colores a esto 
-        printf("         ");
-        printf("         ");
-        printf("TABLERO DE JUEGO \n");
-        printf("      ");
-        printf("--------------------------------------\n");
     
         mapa1(tablero2);
 
@@ -168,9 +186,11 @@ int main(){
         tablero2[posSx][posSy]=4;
 
         dibujar_tablero(tablero2);
+
+        c=preguntardireccion();
         // esto se podría poner en una función (hay que esperar que la profesora nos pase la librería)
         // actualización de plman 
-        switch (preguntardireccion()) {
+        switch (c) {
             case 'w':
                 if(tablero2[posx-1][posy]!=1 && tablero2[posx-1][posy1]!=1){
                     posx = posx-1;
@@ -183,32 +203,36 @@ int main(){
                 }
                 break;
             case 'd':
-                if(tablero2[posx][posy+1]!=1){
+                if(tablero2[posx][posy+2]!=1&& tablero2[posx][posy+1]!=1){
+                    posy = posy+2;
+                    posy1 = posy1+2;
+                }else if (tablero2[posx][posy+1]!=1) {
                     posy = posy+1;
                     posy1 = posy1+1;
                 }
                 break;
             case 'a':
-                if(tablero2[posx][posy1-1]!=1){
+                if(tablero2[posx][posy1-2]!=1&&tablero2[posx][posy1-1]!=1){
+                    posy = posy-2;
+                    posy1 = posy1-2;
+                }else if (tablero2[posx][posy1-1]!=1) {
+                
                     posy = posy-1;
                     posy1 = posy1-1;
                 }
                 break;
         }
 
-
         //actualización enemigo 1
         if (estado==1) {
-            posex--;
-        }else {
-
             posex++;
+        }else if (estado==2) {
+            posex--;
         }
         if (posex==1) {
-            estado=2;
-        }
-        if (posex==8) {
             estado=1;
+        }else if (posex==tamañox-2) {
+            estado=2;
         }
 
         // colisiones 
@@ -221,6 +245,7 @@ int main(){
         }
     }while(game==1);
    
+    printf("\e[1;1H\e[2J");
 
     // for (int i =0; i<tamañox; i++) {
     //     printf("          ");
@@ -231,7 +256,7 @@ int main(){
     // }
 
     // mensajes de salida (se puede hacer algun patron bonito para celebrar o paralamentar
-    // el ganar o perder)
+    // el ganar o perder) @Luca esta es la tuya (lo quiero en gfx )
     if (game==2) {
         printf("Te han matado los enemigos!!!\n");
     

@@ -1,20 +1,27 @@
 #include <stdio.h>
 #include <ncurses.h>
 #include <stdlib.h>
-// el tamaño así esta bien? o es demasiado pequeño?
+#include "menu_proy.c"
 
-#define tamañox 27
-#define tamañoy 100
-#define POSICION_INICIAL_PLMANX 1
-#define POSICION_INICIAL_PLMANY 27
+/////
+/////
+///// 	LAS COORDENADAS ESTAN INTERCAMBIADAS, LA X = Y ; LA Y = X.
+/////
+/////
+
+#define tamanox 27
+#define tamanoy 100
+
+#define POSICION_INICIAL_PLMANX 24
+#define POSICION_INICIAL_PLMANY 97
 #define POSICION_INICIAL_SAVEZONEX 1
 #define POSICION_INICIAL_SAVEZONEY 3
 
-void dibujar_tablero(int tablero[tamañox][tamañoy]){
+void dibujar_tablero(int tablero[tamanox][tamanoy]){
     printf("\n");
-    for (int i =0; i<tamañox; i++) {
+    for (int i =0; i<tamanox; i++) {
         printf("          ");
-        for (int j =0; j<tamañoy; j++) {
+        for (int j =0; j<tamanoy; j++) {
 
                 switch (tablero[i][j]) {
                     case 0:
@@ -50,29 +57,36 @@ void dibujar_tablero(int tablero[tamañox][tamañoy]){
 
 char preguntardireccion(){
     char direccion;
-    // esto funcionaba regular, imprime dos veces la pregunta
         initscr();
         raw();
         keypad(stdscr, true);
         noecho();
     do{
         direccion = getch();
-        if (direccion=='\n') {
-            break;
-        
+        if (direccion== 'p') {
+            printf("\e[1;1H\e[2J");
+            printf("el juego ha sido interrumpido\n");
+            endwin();
+            exit(0);
         }
+        if (direccion!='w'&&direccion!='d'&&direccion!='s'&&direccion!='a'){
+		break;
+        }
+
         endwin();
+	
     }
     while (direccion!='w'&&direccion!='d'&&direccion!='s'&&direccion!='a');
     return direccion;
 }
-void mapa1(int tablero2[tamañox][tamañoy]){
+
+void mapa1(int tablero2[tamanox][tamanoy]){
 
     // inicializa el tablero, cuando se puedan usar arrays bien 
     // se hará en una función a parte (preguntar a la profesora)
-    for (int i = 0; i<tamañox; i++) {
-        for (int j = 0; j<tamañoy; j++) {
-            if (j==0 | j==tamañoy-1 | i ==0 | i==tamañox-1) {
+    for (int i = 0; i<tamanox; i++) {
+        for (int j = 0; j<tamanoy; j++) {
+            if (j==0 | j==tamanoy-1 | i ==0 | i==tamanox-1 | j==1 | j==tamanoy-2) {
                 tablero2[i][j]=1;
             
             }else {
@@ -83,40 +97,10 @@ void mapa1(int tablero2[tamañox][tamañoy]){
     }
 }
 
-int menumapa(){
-    
-    printf("\e[1;1H\e[2J");
-    printf("          ");
-    printf("      MENU MAPA\n");
-    printf("          ");
-    printf("1.- mapa 1");
-    printf("          ");
-    printf("2.- mapa 1\n");
-    printf("          ");
-    printf("3.- salir");
-
-
-}
-
-int menu(){
-    
-    int elección1;
-    printf("          ");
-    printf("      MENU\n");
-    printf("          ");
-    printf("1.- elegir mapa ");
-    printf("          ");
-    printf("2.- mapa aleatorio\n");
-    printf("          ");
-    printf("0.- salir");
-    scanf(" %d", &elección1);
-
-    switch (elección1) {
-        case 1:
-            return menumapa();
-    }
-    
-}
+///patorjk.com/software/taag para usar el menu del mapa 
+// usar small keyboard para poner las opciones
+// usar o8 para poner el "menu mapa"
+// larry 3d para el nombre del juego 
 
 
 int main(){
@@ -132,29 +116,12 @@ int main(){
     int posSx=POSICION_INICIAL_SAVEZONEX,posSy=POSICION_INICIAL_SAVEZONEY;
     int posSy1=posSy-1;
 
-    int tablero2[tamañox][tamañoy];
+    int tablero2[tamanox][tamanoy];
 
     // estado de game, cambiar para terminar el juego 
     // segun el estado final (si ha ganado ) enviar un mensaje
     // y si ha perdido otro
     int game =1;
-
-    /*
-     * ejemplo de 
-     opción poco elegante de inicialización del tablero 
-    int tablero[10][15]={
-        1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-    };
-    */
 
     // hay que hacer un menú de selección (decidir cuantos mapas más hacer...)
     //
@@ -165,13 +132,22 @@ int main(){
     //
     
     int estado = 1;
+    char opcion;
+    
+    menu( &opcion );
 
     do  {
     
-        mapa1(tablero2);
+
         printf("\e[1;1H\e[2J");
     
-        mapa1(tablero2);
+        switch (opcion) {
+            case '1':
+                mapa1(tablero2);
+                break;
+
+        
+        }
 
         // indica la posicion de plman
         tablero2[posx][posy1]=3;
@@ -223,6 +199,8 @@ int main(){
                 break;
         }
 
+
+	// esto varía según el mapa 
         //actualización enemigo 1
         if (estado==1) {
             posex++;
@@ -231,7 +209,7 @@ int main(){
         }
         if (posex==1) {
             estado=1;
-        }else if (posex==tamañox-2) {
+        }else if (posex==tamanox-2) {
             estado=2;
         }
 
@@ -260,11 +238,9 @@ int main(){
     if (game==2) {
         printf("Te han matado los enemigos!!!\n");
     
-    }
-    if (game==3) {
+    }else if (game==3) {
         printf("Has llegado a salvo, enhorabuena!!!\n");
     
     }
-
     
 }

@@ -60,6 +60,7 @@ char preguntardireccion(){
         if (direccion=='p') {
             printf("\e[1;1H\e[2J");
             printf("el juego ha sido interrumpido\n");
+            endwin();
             exit(0);
         }
         if (direccion!='w'&&direccion!='d'&&direccion!='s'&&direccion!='a'){

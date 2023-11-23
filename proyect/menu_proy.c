@@ -65,9 +65,3 @@ int menu(char *m){
     }
 }
 
-int main(){
-    char m;
-
-    menu(&m);
-    return 0;
-}

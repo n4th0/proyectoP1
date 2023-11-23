@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ncurses.h>
 #include <stdlib.h>
+#include "menu_proy.c"
 
 /////
 /////
@@ -100,41 +101,6 @@ void mapa1(int tablero2[tamanox][tamanoy]){
 // usar small keyboard para poner las opciones
 // usar o8 para poner el "menu mapa"
 // larry 3d para el nombre del juego 
-int menumapa(){
-    
-    printf("\e[1;1H\e[2J");
-    printf("          ");
-    printf("      MENU MAPA\n");
-    printf("          ");
-    printf("1.- mapa 1");
-    printf("          ");
-    printf("2.- mapa 1\n");
-    printf("          ");
-    printf("3.- salir");
-
-
-}
-
-int menu(){
-    
-    int eleccion1;
-    printf("          ");
-    
-    printf("      MENU\n");
-    printf("          ");
-    printf("1.- elegir mapa ");
-    printf("          ");
-    printf("2.- mapa aleatorio\n");
-    printf("          ");
-    printf("0.- salir");
-    scanf(" %d", &eleccion1);
-
-    switch (eleccion1) {
-        case 1:
-            return menumapa();
-    }
-    
-}
 
 
 int main(){
@@ -166,14 +132,22 @@ int main(){
     //
     
     int estado = 1;
+    char opcion;
+    
+    menu( &opcion );
 
     do  {
     
 
         printf("\e[1;1H\e[2J");
     
-	/// aqui va el switch con el mapa que queramos 
-        mapa1(tablero2);
+        switch (opcion) {
+            case '1':
+                mapa1(tablero2);
+                break;
+
+        
+        }
 
         // indica la posicion de plman
         tablero2[posx][posy1]=3;

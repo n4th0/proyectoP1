@@ -14,7 +14,7 @@ Compilación:
     gcc /proyectoP1/proyect/proyecto.c -lncurses 
 Ejecución:
 
-    a.out
+    ./a.out
 
 
 ### Archivos escritos por el subnormal de Andrei

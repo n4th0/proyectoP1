@@ -7,9 +7,9 @@ Proyecto hehco entre varios compañeros de la UA para la asignatura de programac
 ## Para compilar el proyecto:
 (en linux)
 
-    'gcc proyecto.c -lncurses
+    gcc proyecto.c -lncurses
 
-    ./a.out'
+    ./a.out
 
 ### Funciones escritas por Andrei:
     - andrei.c

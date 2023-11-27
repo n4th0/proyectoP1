@@ -7,11 +7,11 @@ Proyecto hehco entre varios compañeros de la UA para la asignatura de programac
 ## Para compilar el proyecto:
 (en linux)
 Descarga:
-    git clone https://github.com/n4th0/proyectoP1.git 
+    'git clone https://github.com/n4th0/proyectoP1.git '
 Compilación:
-    gcc /proyectoP1/proyect/proyecto.c -lncurses
+    'gcc /proyectoP1/proyect/proyecto.c -lncurses'
 Ejecución:
-    ./a.out
+    './a.out'
 
 
 ### Archivos escritas por Andrei:

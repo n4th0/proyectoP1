@@ -1,18 +1,18 @@
 # proyectoP1
 Proyecto hehco entre varios compañeros de la UA para la asignatura de programación1
 
-EL JUEGO SE LLAMA MOVE
+# MOVE
 
 
-para compilar el proyecto:
+## para compilar el proyecto:
 (en linux)
 
----    gcc proyecto.c -lncurses 
+    'gcc proyecto.c -lncurses'
 
----    ./a.out
+    './a.out'
 
-funciones escritas por Andrei:
-    andrei.c
+### funciones escritas por Andrei:
+    - andrei.c
 
-funciones escritas por Luca:
-    luca.c
+### funciones escritas por Luca:
+    - luca.c

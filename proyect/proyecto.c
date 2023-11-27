@@ -1,6 +1,7 @@
 
 // incluyo los archivos de mis compañeros
 #include "andrei.c"
+#include "luca.c"
 
 #include <ncurses.h>
 #include <stdio.h>
@@ -107,9 +108,7 @@ void mapa1(int tablero2[tamanox][tamanoy]) {
       if (j == 0 | j == tamanoy - 1 | i == 0 | i == tamanox - 1 | j == 1 |
           j == tamanoy - 2) {
         tablero2[i][j] = 1;
-
       } else {
-
         tablero2[i][j] = 0;
       }
     }
@@ -141,18 +140,11 @@ int main() {
   // y si ha perdido otro
   int game = 1;
 
-  // hay que hacer un menú de selección (decidir cuantos mapas más hacer...)
-  //
-  // hay que hacer más mapas, es decir funciones en las que se necesita un array
-  // y se inicializa
-  // con valores 1 y 0 ()
-  // uno tiene que ser un especial navidad
-  // otro con referencias a plman ()
-  //
 
   int estado = 1;
   char opcion;
 
+  // funcion de andrei.c
   menu(&opcion);
 
   do {
@@ -163,6 +155,7 @@ int main() {
     case '1':
       mapa1(tablero2);
       break;
+
     }
 
     // indica la posicion de plman

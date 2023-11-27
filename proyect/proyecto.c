@@ -1,4 +1,7 @@
-#include "menu_proy.c"
+
+// incluyo los archivos de mis compañeros
+#include "andrei.c"
+
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>

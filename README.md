@@ -17,8 +17,8 @@ Ejecución:
     a.out
 
 
-### Archivos escritas por Andrei
+### Archivos escritos por el subnormal de Andrei
 andrei.c
 
-### Funciones escritas por Luca
+### Archivos escritos por Luca
 luca.c

@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdio.h>
+// necesito una funcion guapa con el mensaje "has ganado" (si no quieres hacerla pasasela a luca)
 
 int menu(char *m);
 

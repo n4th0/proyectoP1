@@ -2,7 +2,6 @@
 // incluyo los archivos de mis compañeros
 #include "andrei.c"
 #include "luca.c"
-
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -99,6 +98,8 @@ char preguntardireccion() {
   return direccion;
 }
 
+
+
 void mapa1(int tablero2[tamanox][tamanoy]) {
 
   // inicializa el tablero, cuando se puedan usar arrays bien
@@ -121,8 +122,7 @@ void mapa1(int tablero2[tamanox][tamanoy]) {
 // larry 3d para el nombre del juego
 
 int main() {
-
-  char c = ' ';
+char c = ' ';
   // posición inicial de plman
   int posx = POSICION_INICIAL_PLMANX, posy = POSICION_INICIAL_PLMANY;
   int posy1 = posy - 1;

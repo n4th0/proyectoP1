@@ -2,6 +2,7 @@
 // incluyo los archivos de mis compañeros
 #include "andrei.c"
 #include "luca.c"
+#include "nathan.c"
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -95,6 +96,7 @@ char preguntardireccion() {
            direccion != 'a');
   return direccion;
 }
+
 
 
 /// patorjk.com/software/taag para usar el menu del mapa

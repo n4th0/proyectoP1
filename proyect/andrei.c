@@ -1,13 +1,16 @@
 #include <stdbool.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 // necesito una funcion guapa con el mensaje "has ganado" (si no quieres hacerla pasasela a luca)
 
 int menu(char *m);
 
-int menu(char *m) {
+int menu(char *m) {		//para realizar el menu
 
   char x;
   bool s;
+  int c;
 
   *m = 0;
   s = false;
@@ -16,12 +19,16 @@ int menu(char *m) {
 
     printf("\e[1;1H\e[2J");
     printf("Iniciando...\n");
+    if (c == 0) sleep(1);			//para que la primera vez que se inicie haya retardo visual
     printf(".\n");
+    if (c == 0) sleep(1);
     printf(".\n");
+    if (c == 0) sleep(1);
     printf(".\n");
+    if (c == 0) sleep(1);
 
-    printf("Bienvenido/a a...\n");
-    printf(
+    printf("Bienvenido/a a...");
+    printf(												//nombre con tipografía chula
         "\n      _____ ______   ________  ___      ___ _______\n     |\\   _ "
         "\\  _   \\|\\   __  \\|\\  \\    /  /|\\  ___ \\\n     \\ \\  "
         "\\\\\\__\\ \\  \\ \\  \\|\\  \\ \\  \\  /  / | \\   __/|\n      \\ \\ "
@@ -39,7 +46,8 @@ int menu(char *m) {
     switch (x) {
 
     case 'i':
-    case 'I':
+    case 'I':										//instrucciones
+      c = 1;
       printf("\e[1;1H\e[2J");
       printf(
           "En MOVE tendrás *N* modos de juego para "
@@ -63,7 +71,8 @@ int menu(char *m) {
       break;
 
     case 'j':
-    case 'J':
+    case 'J':										//modos de juego
+      c = 1;
       printf("\e[1;1H\e[2J");
       printf(" ____ \n||1 ||\n||__|| Resuelve el laberinto. \n|/__\\|\n");
       printf(" ____ \n||2 ||\n||__|| Escapa del enemigo. \n|/__\\|\n");
@@ -80,11 +89,36 @@ int menu(char *m) {
       break;
 
     case 's':
-    case 'S':
+    case 'S':										//salir del programa
       s = true;
       printf("\e[1;1H\e[2J");
-      return 0;
+      exit(0);
     }
   }
+  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,5 +1,6 @@
 
 // incluyo los archivos de mis compañeros
+#include "mapandrei1.c"
 #include "andrei.c"
 #include "luca.c"
 #include "nathan.c"
@@ -112,6 +113,7 @@ int main() {
   int posSx = POSICION_INICIAL_SAVEZONEX, posSy = POSICION_INICIAL_SAVEZONEY;
 
   int tablero2[tamanox][tamanoy];
+  int tablero5[tamanox][tamanoy];
 
   // estado de game, cambiar para terminar el juego
   // segun el estado final (si ha ganado ) enviar un mensaje
@@ -123,13 +125,31 @@ int main() {
 
   // funcion de andrei.c
   menu(&opcion);
-
+  
+  	switch(opcion){
+  	case'2':
+  		mapaA(tablero2);
+  		for(int i = 0; i < tamanox; i++){
+  			for(int j = 0; j < tamanoy; j++){
+  				tablero5[i][j] = tablero2[i][j];
+  			}
+  		}
+  		break;
+	}
   do {
 
     switch (opcion) {
     case '1':
       mapa1(tablero2);
       break;
+     
+     case '2':
+     	for(int i = 0; i < tamanox; i++){
+  			for(int j = 0; j < tamanoy; j++){
+  				tablero5[i][j] = tablero2[i][j];
+  			}
+  		}
+  		break;
     }
 
     printf("\e[1;1H\e[2J");

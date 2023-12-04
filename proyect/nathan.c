@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define tamanox 27
 #define tamanoy 50
@@ -40,3 +42,31 @@ void mapa1(int tablero2[tamanox][tamanoy]){
     }
   }
 }
+void randomMapa( int tablero2[tamanox][tamanoy]){
+  int a;
+  srand(time(NULL));
+  for (int i = 0; i<tamanox; i++) {
+    for (int j = 0; j<tamanoy; j++) {
+      a = rand()%3;
+      tablero2[i][j] = (a==0)? 1: 0;
+    }
+  }
+
+  for (int i = 0; i<tamanox; i++) {
+    for (int j = 0; j<tamanoy; j++) {
+      if (j==0 || i ==0 || j == tamanoy -1 || i == tamanox-1) {
+        tablero2[i][j]=1;
+      }
+    }
+  }
+  tablero2[1][2]=0;
+  tablero2[2][1]=0;
+
+  tablero2[24][48]=0;
+  tablero2[25][47]=0;
+
+}
+
+
+
+

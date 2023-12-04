@@ -1,8 +1,8 @@
 
 // incluyo los archivos de mis compañeros
-#include "mapandrei1.c"
 #include "andrei.c"
 #include "luca.c"
+#include "mapandrei1.c"
 #include "nathan.c"
 #include <ncurses.h>
 #include <stdio.h>
@@ -19,8 +19,12 @@
 #define POSICION_INICIAL_PLMANY 48
 #define POSICION_INICIAL_SAVEZONEX 1
 #define POSICION_INICIAL_SAVEZONEY 1
+struct enemigo {
+  int posex;
+  int posey;
+};
 
-void dibujar_tablero(int tablero[tamanox][tamanoy]) {
+void dibujarTablero(int tablero[tamanox][tamanoy]) {
   printf("\n");
   for (int i = 0; i < tamanox; i++) {
     printf("          ");
@@ -108,12 +112,12 @@ int main() {
   // posición inicial de plman
   int posx = POSICION_INICIAL_PLMANX, posy = POSICION_INICIAL_PLMANY;
 
-  int posex = 8, posey = 5;
+  struct enemigo enemigo1;
 
   int posSx = POSICION_INICIAL_SAVEZONEX, posSy = POSICION_INICIAL_SAVEZONEY;
 
   int tablero2[tamanox][tamanoy];
-  int tablero5[tamanox][tamanoy];
+  int tableroAuxiliar[tamanox][tamanoy];
 
   // estado de game, cambiar para terminar el juego
   // segun el estado final (si ha ganado ) enviar un mensaje
@@ -125,31 +129,71 @@ int main() {
 
   // funcion de andrei.c
   menu(&opcion);
-  
-  	switch(opcion){
-  	case'2':
-  		mapaA(tablero2);
-  		for(int i = 0; i < tamanox; i++){
-  			for(int j = 0; j < tamanoy; j++){
-  				tablero5[i][j] = tablero2[i][j];
-  			}
-  		}
-  		break;
-	}
+  switch (opcion) {
+  case '1':
+    // inicialización del enemigo
+    enemigo1.posex = 8;
+    enemigo1.posey = 8;
+    break;
+  case '2':
+    mapaA(tablero2);
+    for (int i = 0; i < tamanox; i++) {
+      for (int j = 0; j < tamanoy; j++) {
+        tableroAuxiliar[i][j] = tablero2[i][j];
+      }
+    }
+    break;
+  case '7':
+    randomMapa(tablero2);
+    for (int i = 0; i < tamanox; i++) {
+      for (int j = 0; j < tamanoy; j++) {
+        tableroAuxiliar[i][j] = tablero2[i][j];
+      }
+    }
+  }
+
   do {
 
     switch (opcion) {
     case '1':
       mapa1(tablero2);
+
+      // indica la posicion de enemigos
+      tablero2[enemigo1.posex][enemigo1.posey] = 2;
+      // esto varía según el mapa
+      // actualización enemigo 1
+      if (estado == 1) {
+        enemigo1.posex++;
+      } else if (estado == 2) {
+        enemigo1.posex--;
+      }
+      if (enemigo1.posex == 1) {
+        estado = 1;
+      } else if (enemigo1.posex == tamanox - 2) {
+        estado = 2;
+      }
+
+      // colisiones
+      if (enemigo1.posex == posx && enemigo1.posey == posy) {
+        game = 2;
+      }
       break;
-     
-     case '2':
-     	for(int i = 0; i < tamanox; i++){
-  			for(int j = 0; j < tamanoy; j++){
-  				tablero5[i][j] = tablero2[i][j];
-  			}
-  		}
-  		break;
+
+    case '2':
+      for (int i = 0; i < tamanox; i++) {
+        for (int j = 0; j < tamanoy; j++) {
+          tablero2[i][j] = tableroAuxiliar[i][j];
+        }
+      }
+      break;
+    case '7':
+
+      for (int i = 0; i < tamanox; i++) {
+        for (int j = 0; j < tamanoy; j++) {
+          tablero2[i][j] = tableroAuxiliar[i][j];
+        }
+      }
+      break;
     }
 
     printf("\e[1;1H\e[2J");
@@ -157,20 +201,17 @@ int main() {
     // indica la posicion de plman
     tablero2[posx][posy] = 3;
 
-    // indica la posicion de enemigos
-    tablero2[posex][posey] = 2;
-
     // indica la posición de la save zone
     tablero2[posSx][posSy] = 4;
 
-    dibujar_tablero(tablero2);
+    dibujarTablero(tablero2);
 
     c = preguntardireccion();
     // esto se podría poner en una función (hay que esperar que la profesora nos
     // pase la librería) actualización de plman
     switch (c) {
     case 'w':
-      if (tablero2[posx-1][posy] != 1) {
+      if (tablero2[posx - 1][posy] != 1) {
         posx = posx - 1;
       }
       break;
@@ -191,26 +232,8 @@ int main() {
       }
       break;
     }
-
-    // esto varía según el mapa
-    // actualización enemigo 1
-    if (estado == 1) {
-      posex++;
-    } else if (estado == 2) {
-      posex--;
-    }
-    if (posex == 1) {
-      estado = 1;
-    } else if (posex == tamanox - 2) {
-      estado = 2;
-    }
-
-    // colisiones
-    if ( posex == posx && posey == posy ) {
-      game = 2;
-    }
     // colision save zone
-    if ( posSx == posx && posSy == posy ) {
+    if (posSx == posx && posSy == posy) {
       game = 3;
     }
   } while (game == 1);

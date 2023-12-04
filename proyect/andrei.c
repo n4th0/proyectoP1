@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-// necesito una funcion guapa con el mensaje "has ganado" (si no quieres hacerla pasasela a luca)
+// hay que mejorar este menu, para poder seleccionar los modos y 
+// los mapas en específico
 
 int menu(char *m);
 
@@ -82,7 +83,7 @@ int menu(char *m) {		//para realizar el menu
       scanf(" %c", &x);
       if (x == 's')
         s = false;
-      else if (x == '1' || x == '2' || x == '3' || x == '4') {
+      else if (x == '1' || x == '2' || x == '3' || x == '4' || x == '7') {
         *m = x;
         s = true;
       }
@@ -93,6 +94,7 @@ int menu(char *m) {		//para realizar el menu
       s = true;
       printf("\e[1;1H\e[2J");
       exit(0);
+      break;
     }
   }
   

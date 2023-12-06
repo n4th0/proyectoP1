@@ -125,9 +125,9 @@ int main() {
   int game = 1;
 
   int estado = 1;
-  char opcion;
 
   // funcion de andrei.c
+  char opcion;
   menu(&opcion);
   switch (opcion) {
   case '1':

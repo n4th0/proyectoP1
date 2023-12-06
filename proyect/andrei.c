@@ -56,7 +56,7 @@ int menu(char *m) {		//para realizar el menu
 			printf(
 			  "En MOVE tendrás *N* modos de juego para "
 			  "elegir.\n--------------------------\n-------------------------\nEl "
-			  "primer modo de juego se llama 'LABIRINTH', el cual consiste en la "
+			  "primer modo de juego se llama 'MOVE', el cual consiste en la "
 			  "resolución de un laberinto, pero tendrás que darte prisa, ya que "
 			  "perderás si no lo resuelves antes de que se acabe el "
 			  "tiempo.\n-------------------------\n-------------------------\nEl "

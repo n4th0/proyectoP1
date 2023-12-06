@@ -136,26 +136,29 @@ int main() {
     enemigo1.posey = 8;
     break;
   case '2':
-  	mapaElegido(&opcion);
-  	switch(opcion) {
-  	case '1':
-	    mapaLA(tablero2);
-	    for (int i = 0; i < tamanox; i++) {
-	      for (int j = 0; j < tamanoy; j++) {
-		tableroAuxiliar[i][j] = tablero2[i][j];
-	      }
+	  mapaLA(tablero2);
+	  for (int i = 0; i < tamanox; i++) {
+	    for (int j = 0; j < tamanoy; j++) {
+		    tableroAuxiliar[i][j] = tablero2[i][j];
 	    }
-	    break;
-	case '2':
-	    mapaLB(tablero2);
-	    for (int i = 0; i < tamanox; i++) {
-	      for (int j = 0; j < tamanoy; j++) {
-		tableroAuxiliar[i][j] = tablero2[i][j];
-	      }
+    }
+	  break;
+	case '3':
+	  mapaLB(tablero2);
+	  for (int i = 0; i < tamanox; i++) {
+	    for (int j = 0; j < tamanoy; j++) {
+		    tableroAuxiliar[i][j] = tablero2[i][j];
 	    }
-	    break;
-	break;
-	}
+	  }
+	  break;
+  case '4':
+	  mapaLC(tablero2);
+	  for (int i = 0; i < tamanox; i++) {
+	    for (int j = 0; j < tamanoy; j++) {
+		    tableroAuxiliar[i][j] = tablero2[i][j];
+	    }
+	  }
+	  break;
   case '7':
     randomMapa(tablero2);
     for (int i = 0; i < tamanox; i++) {
@@ -199,6 +202,21 @@ int main() {
         }
       }
       break;
+    case '3':
+      for (int i = 0; i < tamanox; i++) {
+        for (int j = 0; j < tamanoy; j++) {
+          tablero2[i][j] = tableroAuxiliar[i][j];
+        }
+      }
+      break;
+    case '4':
+      for (int i = 0; i < tamanox; i++) {
+        for (int j = 0; j < tamanoy; j++) {
+          tablero2[i][j] = tableroAuxiliar[i][j];
+        }
+      }
+      break;
+    
     case '7':
 
       for (int i = 0; i < tamanox; i++) {

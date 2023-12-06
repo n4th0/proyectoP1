@@ -92,7 +92,7 @@ int menu(char *m) {		//para realizar el menu
 					if (eleccion == '1') {
 						int a;
 						srand(time(NULL));
-						a = 2;
+						a = rand()%3;
 						//para elegir el mapa del laberinto de forma aleatoria
 
 						if (a == 0) *m = '2';

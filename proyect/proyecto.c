@@ -118,6 +118,7 @@ int main() {
 
   int tablero2[tamanox][tamanoy];
   int tableroAuxiliar[tamanox][tamanoy];
+  int contadorRelleno;
 
   // estado de game, cambiar para terminar el juego
   // segun el estado final (si ha ganado ) enviar un mensaje
@@ -131,36 +132,46 @@ int main() {
   menu(&opcion);
   switch (opcion) {
   case '1':
+    // indica la posición de la save zone (no tocar)
+    tablero2[posSx][posSy] = 4;
     // inicialización del enemigo
     enemigo1.posex = 8;
     enemigo1.posey = 8;
+
     break;
   case '2':
-	  mapaLA(tablero2);
-	  for (int i = 0; i < tamanox; i++) {
-	    for (int j = 0; j < tamanoy; j++) {
-		    tableroAuxiliar[i][j] = tablero2[i][j];
-	    }
+    // indica la posición de la save zone (no tocar)
+    tablero2[posSx][posSy] = 4;
+    mapaLA(tablero2);
+    for (int i = 0; i < tamanox; i++) {
+      for (int j = 0; j < tamanoy; j++) {
+        tableroAuxiliar[i][j] = tablero2[i][j];
+      }
     }
-	  break;
-	case '3':
-	  mapaLB(tablero2);
-	  for (int i = 0; i < tamanox; i++) {
-	    for (int j = 0; j < tamanoy; j++) {
-		    tableroAuxiliar[i][j] = tablero2[i][j];
-	    }
-	  }
-	  break;
+    break;
+  case '3':
+    mapaLB(tablero2);
+    // indica la posición de la save zone (no tocar)
+    tablero2[posSx][posSy] = 4;
+    for (int i = 0; i < tamanox; i++) {
+      for (int j = 0; j < tamanoy; j++) {
+        tableroAuxiliar[i][j] = tablero2[i][j];
+      }
+    }
+    break;
   case '4':
-	  mapaLC(tablero2);
-	  for (int i = 0; i < tamanox; i++) {
-	    for (int j = 0; j < tamanoy; j++) {
-		    tableroAuxiliar[i][j] = tablero2[i][j];
-	    }
-	  }
-	  break;
+    mapaLA(tablero2);
+    // indica la posición de la save zone(no tocar)
+    tablero2[posSx][posSy] = 4;
+    for (int i = 0; i < tamanox; i++) {
+      for (int j = 0; j < tamanoy; j++) {
+        tableroAuxiliar[i][j] = tablero2[i][j];
+      }
+    }
+    break;
+
   case '7':
-    randomMapa(tablero2);
+    mapaRelleno(tablero2);
     for (int i = 0; i < tamanox; i++) {
       for (int j = 0; j < tamanoy; j++) {
         tableroAuxiliar[i][j] = tablero2[i][j];
@@ -193,6 +204,10 @@ int main() {
       if (enemigo1.posex == posx && enemigo1.posey == posy) {
         game = 2;
       }
+      // colision save zone
+      if (posSx == posx && posSy == posy) {
+        game = 3;
+      }
       break;
 
     case '2':
@@ -201,12 +216,20 @@ int main() {
           tablero2[i][j] = tableroAuxiliar[i][j];
         }
       }
+      // colision save zone
+      if (posSx == posx && posSy == posy) {
+        game = 3;
+      }
       break;
     case '3':
       for (int i = 0; i < tamanox; i++) {
         for (int j = 0; j < tamanoy; j++) {
           tablero2[i][j] = tableroAuxiliar[i][j];
         }
+      }
+      // colision save zone
+      if (posSx == posx && posSy == posy) {
+        game = 3;
       }
       break;
     case '4':
@@ -215,25 +238,33 @@ int main() {
           tablero2[i][j] = tableroAuxiliar[i][j];
         }
       }
-      break;
-    
-    case '7':
-
-      for (int i = 0; i < tamanox; i++) {
-        for (int j = 0; j < tamanoy; j++) {
-          tablero2[i][j] = tableroAuxiliar[i][j];
-        }
+      // colision save zone
+      if (posSx == posx && posSy == posy) {
+        game = 3;
       }
       break;
+
+    case '7':
+      break;
+    }
+
+    contadorRelleno = 0;
+
+    for (int i = 0; i < tamanox; i++) {
+      for (int j = 0; j < tamanoy; j++) {
+        if (tablero2[i][j] == 0) {
+          contadorRelleno++;
+        }
+      }
+    }
+    if (contadorRelleno == 0) {
+      game = 3;
     }
 
     printf("\e[1;1H\e[2J");
 
     // indica la posicion de plman
     tablero2[posx][posy] = 3;
-
-    // indica la posición de la save zone
-    tablero2[posSx][posSy] = 4;
 
     dibujarTablero(tablero2);
 
@@ -262,10 +293,6 @@ int main() {
         posy = posy - 1;
       }
       break;
-    }
-    // colision save zone
-    if (posSx == posx && posSy == posy) {
-      game = 3;
     }
   } while (game == 1);
 

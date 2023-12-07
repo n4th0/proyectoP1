@@ -75,10 +75,10 @@ int menu(char *m) {		//para realizar el menu
 
 		case 'j':
 		case 'J':										//modos de juego
-			sinEleccion = false;
-			contador = 1;
+			// sinEleccion = false;
+			// contador = 1;
 
-			while(sinEleccion == false){
+			while(1){
 				printf("\e[1;1H\e[2J");
 				printf(" ____ \n||1 ||\n||__|| Resuelve el laberinto. \n|/__\\|\n");
 				printf(" ____ \n||2 ||\n||__|| Escapa del enemigo. \n|/__\\|\n");
@@ -86,8 +86,8 @@ int menu(char *m) {		//para realizar el menu
 				printf(" ____ \n||4 ||\n||__|| ************ \n|/__\\|\n");
 				printf(" ____ \n||S ||\n||__|| Volver al menú. \n|/__\\|\n\n");
 				scanf(" %c", &eleccion);
-				if (eleccion == 's') salir = false;
-				else if (eleccion == '1' || eleccion == '2' || eleccion == '3' || eleccion == '4') {
+				if (eleccion == 's' || eleccion=='S') salir = false;
+				else if (eleccion == '1' || eleccion == '2' || eleccion == '3' || eleccion == '4' || eleccion=='7') {
 
 					if (eleccion == '1') {
 						int a;
@@ -102,6 +102,11 @@ int menu(char *m) {		//para realizar el menu
 						//elección del modo de laberinto
 						salir = true;
 						break;
+					}else if (eleccion=='7') {
+						*m='7';
+						salir=true;
+						break;
+					
 					}
 					/*
 					else if (eleccion != '1') {

@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define tamanox 27
-#define tamanoy 50
+#define tamanoy 27
+#define tamanox 50
 
-void mapaLA(int tablero2[tamanox][tamanoy]){								//primer mapa del modo laberinto
+void mapaLA(int tablero2[tamanoy][tamanox]){								//primer mapa del modo laberinto
   int tableroA[27][50]={
 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,1,
@@ -36,22 +36,22 @@ void mapaLA(int tablero2[tamanox][tamanoy]){								//primer mapa del modo laber
 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
   };
     
-  for (int i = 0; i < tamanox; i++) {								//para copiar el tablero creado al tablero vacío
-    for (int j = 0; j < tamanoy; j++) {
+  for (int i = 0; i < tamanoy; i++) {								//para copiar el tablero creado al tablero vacío
+    for (int j = 0; j < tamanox; j++) {
       tablero2[i][j]=tableroA[i][j];
     }
   }
   int a;											//para crear el mapa de manera aleatoria
   srand(time(NULL));
-  for (int i = 0; i<tamanox; i++) {
-    for (int j = 0; j<tamanoy; j++) {
+  for (int i = 0; i<tamanoy; i++) {
+    for (int j = 0; j<tamanox; j++) {
       a = rand()%2;
       if (tablero2[i][j] == 0) tablero2[i][j] = (a==0)? 1: 0;
     }
   }
 
-  for (int i = 0; i<tamanox; i++) {								//para poder moverse por el camino que implica la solución
-    for (int j = 0; j<tamanoy; j++) {
+  for (int i = 0; i<tamanoy; i++) {								//para poder moverse por el camino que implica la solución
+    for (int j = 0; j<tamanox; j++) {
       if (tablero2[i][j]==4) {
         tablero2[i][j]=0;
       }
@@ -65,7 +65,7 @@ void mapaLA(int tablero2[tamanox][tamanoy]){								//primer mapa del modo laber
 }
 
 
-void mapaLB(int tablero2[tamanox][tamanoy]){
+void mapaLB(int tablero2[tamanoy][tamanox]){
   int tableroA[27][50]={
 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,1,
@@ -96,22 +96,22 @@ void mapaLB(int tablero2[tamanox][tamanoy]){
 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
   };
     
-  for (int i = 0; i < tamanox; i++) {
-    for (int j = 0; j < tamanoy; j++) {
+  for (int i = 0; i < tamanoy; i++) {
+    for (int j = 0; j < tamanox; j++) {
       tablero2[i][j]=tableroA[i][j];
     }
   }
   int a;
   srand(time(NULL));
-  for (int i = 0; i<tamanox; i++) {
-    for (int j = 0; j<tamanoy; j++) {
+  for (int i = 0; i<tamanoy; i++) {
+    for (int j = 0; j<tamanox; j++) {
       a = rand()%2;
       if (tablero2[i][j] == 0) tablero2[i][j] = (a==0)? 1: 0;
     }
   }
 
-  for (int i = 0; i<tamanox; i++) {
-    for (int j = 0; j<tamanoy; j++) {
+  for (int i = 0; i<tamanoy; i++) {
+    for (int j = 0; j<tamanox; j++) {
       if (tablero2[i][j]==4) {
         tablero2[i][j]=0;
       }
@@ -124,7 +124,7 @@ void mapaLB(int tablero2[tamanox][tamanoy]){
   tablero2[25][47]=0;
 }
 
-void mapaLC(int tablero2[tamanox][tamanoy]){
+void mapaLC(int tablero2[tamanoy][tamanox]){
   int tableroA[27][50]={
 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,1,
@@ -155,22 +155,22 @@ void mapaLC(int tablero2[tamanox][tamanoy]){
 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
   };
     
-  for (int i = 0; i < tamanox; i++) {
-    for (int j = 0; j < tamanoy; j++) {
+  for (int i = 0; i < tamanoy; i++) {
+    for (int j = 0; j < tamanox; j++) {
       tablero2[i][j]=tableroA[i][j];
     }
   }
   int a;
   srand(time(NULL));
-  for (int i = 0; i<tamanox; i++) {
-    for (int j = 0; j<tamanoy; j++) {
+  for (int i = 0; i<tamanoy; i++) {
+    for (int j = 0; j<tamanox; j++) {
       a = rand()%2;
       if (tablero2[i][j] == 0) tablero2[i][j] = (a==0)? 1: 0;
     }
   }
 
-  for (int i = 0; i<tamanox; i++) {
-    for (int j = 0; j<tamanoy; j++) {
+  for (int i = 0; i<tamanoy; i++) {
+    for (int j = 0; j<tamanox; j++) {
       if (tablero2[i][j]==4) {
         tablero2[i][j]=0;
       }

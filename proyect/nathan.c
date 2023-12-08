@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define tamanox 27
-#define tamanoy 50
+#define tamanoy 27
+#define tamanox 50
 
-void mapa1(int tablero2[tamanox][tamanoy]){
+void mapa1(int tablero2[tamanoy][tamanox]){
   int tablero3[27][50]={
 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,1,
@@ -36,25 +36,25 @@ void mapa1(int tablero2[tamanox][tamanoy]){
 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
   };
     
-  for (int i = 0; i < tamanox; i++) {
-    for (int j = 0; j < tamanoy; j++) {
+  for (int i = 0; i < tamanoy; i++) {
+    for (int j = 0; j < tamanox; j++) {
       tablero2[i][j]=tablero3[i][j];
     }
   }
 }
-void randomMapa( int tablero2[tamanox][tamanoy]){
+void randomMapa( int tablero2[tamanoy][tamanox]){
   int a;
   srand(time(NULL));
-  for (int i = 0; i<tamanox; i++) {
-    for (int j = 0; j<tamanoy; j++) {
+  for (int i = 0; i<tamanoy; i++) {
+    for (int j = 0; j<tamanox; j++) {
       a = rand()%3;
       tablero2[i][j] = (a==0)? 1: 0;
     }
   }
 
-  for (int i = 0; i<tamanox; i++) {
-    for (int j = 0; j<tamanoy; j++) {
-      if (j==0 || i ==0 || j == tamanoy -1 || i == tamanox-1) {
+  for (int i = 0; i<tamanoy; i++) {
+    for (int j = 0; j<tamanox; j++) {
+      if (j==0 || i ==0 || j == tamanox -1 || i == tamanoy-1) {
         tablero2[i][j]=1;
       }
     }
@@ -67,9 +67,9 @@ void randomMapa( int tablero2[tamanox][tamanoy]){
 
 }
 
-void mapaRelleno(int tablero[tamanox][tamanoy]){
-  for (int i = 0; i<tamanox; i++) {
-    for (int j = 0; j<tamanoy; j++) {
+void mapaRelleno(int tablero[tamanoy][tamanox]){
+  for (int i = 0; i<tamanoy; i++) {
+    for (int j = 0; j<tamanox; j++) {
       if (j%2==0) {
         tablero[i][j]=1;
       }
@@ -77,13 +77,13 @@ void mapaRelleno(int tablero[tamanox][tamanoy]){
     }
   
   }
-  for (int i = 0; i<tamanox; i++) {
-    for (int j = 0; j<tamanoy; j++) {
+  for (int i = 0; i<tamanoy; i++) {
+    for (int j = 0; j<tamanox; j++) {
       if (i==1) {
         tablero[i][j]=0;
       
       }
-      if (j==0 || i ==0 || j == tamanoy -1 || i == tamanox-1) {
+      if (j==0 || i ==0 || j == tamanox -1 || i == tamanoy-1) {
         tablero[i][j]=1;
       }
     }

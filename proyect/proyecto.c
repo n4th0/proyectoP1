@@ -131,6 +131,7 @@ int main() {
   bool existeSavezone = false;
 
   struct enemigo enemigo1;
+  int estadoEnemigo = 1;
 
   int tablero[tamanoy][tamanox];
   int tableroAuxiliar[tamanoy][tamanox];
@@ -142,8 +143,6 @@ int main() {
   // 2-> perdido
   // 3-> ganado
   int gameState = 1;
-
-  int estadoEnemigo = 1;
 
   // funcion de andrei.c
   char opcion;
@@ -176,6 +175,7 @@ int main() {
     mapaLB(tablero);
 
     tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
+    existeSavezone = true;
     for (int i = 0; i < tamanoy; i++) {
       for (int j = 0; j < tamanox; j++) {
         tableroAuxiliar[i][j] = tablero[i][j];
@@ -187,6 +187,7 @@ int main() {
     mapaLA(tablero);
 
     tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
+    existeSavezone = true;
     for (int i = 0; i < tamanoy; i++) {
       for (int j = 0; j < tamanox; j++) {
         tableroAuxiliar[i][j] = tablero[i][j];

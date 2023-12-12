@@ -249,19 +249,6 @@ int main() {
       break;
     }
 
-    // necesario para mapas con relleno
-    contadorRelleno = 0;
-    for (int i = 0; i < tamanoy; i++) {
-      for (int j = 0; j < tamanox; j++) {
-        if (tablero[i][j] == 0) {
-          contadorRelleno++;
-        }
-      }
-    }
-    if (contadorRelleno == 0) {
-      gameState = 3;
-    }
-
     printf("\e[1;1H\e[2J");
 
     // indica la posicion de plman
@@ -273,28 +260,46 @@ int main() {
     switch (preguntarDireccion()) {
     case 'w':
       if (tablero[posy - 1][posx] != 1) {
+        tablero[posy][posx] = 4;
         posy = posy - 1;
       }
       break;
     case 's':
 
       if (tablero[posy + 1][posx] != 1) {
+        tablero[posy][posx] = 4;
         posy = posy + 1;
       }
       break;
     case 'd':
       if (tablero[posy][posx + 1] != 1) {
+        tablero[posy][posx] = 4;
         posx = posx + 1;
       }
       break;
     case 'a':
       if (tablero[posy][posx - 1] != 1) {
+        tablero[posy][posx] = 4;
         posx = posx - 1;
       }
       break;
     }
 
     gameState = colisionSave(posy, posx, existeSavezone);
+
+    // necesario para mapas con relleno
+    contadorRelleno = 0;
+    for (int i = 0; i < tamanoy; i++) {
+      for (int j = 0; j < tamanox; j++) {
+        if (tablero[i][j] == 0) {
+          contadorRelleno++;
+        }
+      }
+    }
+
+    if (contadorRelleno == 0 && !existeSavezone) {
+      gameState = 3;
+    }
 
   } while (gameState == 1);
 

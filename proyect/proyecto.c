@@ -186,7 +186,7 @@ int main() {
     break;
 
   case '4':
-    mapaLA(tablero);
+    mapaLC(tablero);
 
     tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
     existeSavezone = true;

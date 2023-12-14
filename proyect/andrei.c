@@ -3,8 +3,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
-// hay que mejorar este menu, para poder seleccionar los modos y 
-// los mapas en específico
 
 int menu(char *m) {		//para realizar el menu
 

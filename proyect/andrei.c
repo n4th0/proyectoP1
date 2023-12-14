@@ -11,7 +11,7 @@ int menu(char *m) {		//para realizar el menu
   bool salir, sinEleccion;
   //salir del programa
   //en caso de que se elija salir del seleccionador de mapas
-  int contador;
+  int contador = 1;
   //para que solo la primera vez se ejecute el sleep()
 
   salir = false;
@@ -20,7 +20,7 @@ int menu(char *m) {		//para realizar el menu
 	while (salir == false) {
 
 		printf("\e[1;1H\e[2J");
-		printf("Iniciando...\n");
+		printf("Initializing...\n");
 		if (contador == 0) sleep(1);			//para que la primera vez que se inicie haya retardo visual
 		printf(".\n");
 		if (contador == 0) sleep(1);
@@ -29,7 +29,7 @@ int menu(char *m) {		//para realizar el menu
 		printf(".\n");
 		if (contador == 0) sleep(1);
 
-		printf("Bienvenido/a a...");
+		printf("Welcome to...");
 		printf(												//nombre con tipografía chula
 		"\n      _____ ______   ________  ___      ___ _______\n     |\\   _ "
 		"\\  _   \\|\\   __  \\|\\  \\    /  /|\\  ___ \\\n     \\ \\  "
@@ -38,9 +38,9 @@ int menu(char *m) {		//para realizar el menu
 		"\\ \\  \\    \\ \\  \\ \\  \\\\\\  \\ \\    / /   \\ \\  \\_|\\ \\\n  "
 		"      \\ \\__\\    \\ \\__\\ \\_______\\ \\__/ /     \\ \\_______\\\n "
 		"        \\|__|     \\|__|\\|_______|\\|__|/       \\|_______|\n");
-		printf("\n ____ \n||I ||\n||__|| Instrucciones. \n|/__\\|\n");
-		printf(" ____ \n||J ||\n||__|| Modos de juego. \n|/__\\|\n");
-		printf(" ____ \n||S ||\n||__|| Salir. \n|/__\\|\n");
+		printf("\n ____ \n||I ||\n||__|| Instructions. \n|/__\\|\n");
+		printf(" ____ \n||G ||\n||__|| Game modes. \n|/__\\|\n");
+		printf(" ____ \n||E ||\n||__|| Exit. \n|/__\\|\n");
 		printf("\n");
 
 		scanf(" %c", &eleccion);
@@ -51,142 +51,125 @@ int menu(char *m) {		//para realizar el menu
 		case 'I':										//instrucciones
 			contador = 1;
 			printf("\e[1;1H\e[2J");
-			printf(
-			  "En MOVE tendrás *N* modos de juego para "
-			  "elegir.\n--------------------------\n-------------------------\nEl "
-			  "primer modo de juego se llama 'MOVE', el cual consiste en la "
-			  "resolución de un laberinto, pero tendrás que darte prisa, ya que "
-			  "perderás si no lo resuelves antes de que se acabe el "
-			  "tiempo.\n-------------------------\n-------------------------\nEl "
-			  "segundo modo de juego "
-			  "*...*.\n-------------------------\n-------------------------\nEl "
-			  "tercer modo de juego "
-			  "*...*.\n-------------------------\n-------------------------\nY por "
-			  "último, el cuarto modo de juego es "
-			  "*...*.\n-------------------------\n-------------------------\nPara "
-			  "moverte, tendrás que utiizar las teclas W,A,S y D, que van en las "
-			  "direcciones izquierda(A), arriba(W), derecha(D) y abajo(S).");
-			printf("\n\nIntroduce S tecla para salir.\n");
+			printf("\n\nThe first game mode is called LABIRINTH, and your scope is to solve it. Your character (yellow square) must arrive to the end (green square)."
+			" Each time the map will be generated randomly, so you won't be able to memorize the solution.\n-------------------------\nThe second game mode is called FILL THE MAP. In this one, you have to "
+			"choose a map between the options and fill it with your colour. To accomplish this, your character will leave a trail behind, marking the gaps you "
+			"stepped over\n-------------------------\nThe third game mode is called SAFE ZONE, in which you will have to avoid the red enemies that will spawn "
+			"in order to reach the green zone and be safe. But be careful, as touching an enemy will end your game. \n-------------------------\nThe fourth and "
+			"last game mode is called PSYCHEDELIC. In this mode your purpose is to reach the green square, but the map will be changing every time you move, so "
+			"you will have to calculate your movement in order to finish correctly.\n-------------------------\nGood luck player, choose whichever game mode drew "
+			"your attention and play it as many times as you like.\n\n\n\n\n\n\n\n\n\nAnd... Who knows... If you are discerning enough"
+			"... You might find our little secret.\n-------------------------\nSincerely, the developers.");
+			
+			printf("\n\n\n\n\n\nType any character to return.\n");
 			scanf(" %c", &eleccion);
 			if (eleccion != '0') salir = false;
-			break;
+		break;
 
-		case 'j':
-		case 'J':										//modos de juego
-			// sinEleccion = false;
-			// contador = 1;
+		case 'g':
+		case 'G':										//modos de juego
+			contador = 1;
 
-			while(1){
-				printf("\e[1;1H\e[2J");
-				printf(" ____ \n||1 ||\n||__|| Resuelve el laberinto. \n|/__\\|\n");
-				printf(" ____ \n||2 ||\n||__|| Escapa del enemigo. \n|/__\\|\n");
-				printf(" ____ \n||3 ||\n||__|| ************ \n|/__\\|\n");
-				printf(" ____ \n||4 ||\n||__|| ************ \n|/__\\|\n");
-				printf(" ____ \n||S ||\n||__|| Volver al menú. \n|/__\\|\n\n");
-				scanf(" %c", &eleccion);
-				if (eleccion == 's' || eleccion=='S') salir = false;
-				else if (eleccion == '1' || eleccion == '2' || eleccion == '3' || eleccion == '4' || eleccion=='7' || eleccion == '8') {
 
-					if (eleccion == '2') {
-						int a;
-						srand(time(NULL));
-						a = rand()%3;
-						//para elegir el mapa del laberinto de forma aleatoria
+			printf("\e[1;1H\e[2J");
+			printf(" ____ \n||1 ||\n||__|| Labirinth. \n|/__\\|\n");
+			printf(" ____ \n||2 ||\n||__|| Fill the map. \n|/__\\|\n");
+			printf(" ____ \n||3 ||\n||__|| Safe zone. \n|/__\\|\n");
+			printf(" ____ \n||4 ||\n||__|| Psychedelic. \n|/__\\|\n");
+			printf(" ____ \n||E ||\n||__|| Return. \n|/__\\|\n\n");
+			scanf(" %c", &eleccion);
+			if (eleccion == 's' || eleccion=='S') salir = false;
+			else if (eleccion == '1' || eleccion == '2' || eleccion == '3' || eleccion == '4' || eleccion == '5' || eleccion == '6' || eleccion == '7') {
 
-						if (a == 0) *m = '2';
-						else if (a == 1) *m = '3';
-						else if (a == 2) *m = '4';
+				if (eleccion == '1') {
+					int a;
+					srand(time(NULL));
+					a = rand()%3;
+					//para elegir el mapa del laberinto de forma aleatoria
+
+					if (a == 0) *m = '1';
+					else if (a == 1) *m = '2';
+					else if (a == 2) *m = '3';
 						
-						//elección del modo de laberinto
-						salir = true;
-						break;
-					}else if (eleccion=='7') {
-						*m='7';
-						salir=true;
-						break;
-					}else if (eleccion=='4') {
-						*m='4';
-						salir=true;
-						break;
-					}else if (eleccion=='8') {
-						*m='8';
-						salir=true;
-						break;
-					}else if (eleccion=='1') {
-						*m='1';
-						salir=true;
-						break;
-					
-					}
-					/*
-					else if (eleccion != '1') {
-					
-						do {
-							printf("\e[1;1H\e[2J");
-							if (mapaElegido != '1' && mapaElegido != '2' && mapaElegido != '3' && mapaElegido != 's' && mapaElegido != '0') printf("Elección invalida.");
-							printf("Elige uno de los mapas\n");
-							printf(" ____ \n||1 ||\n||__||\n|/__\\|\n");
-							printf(" ____ \n||2 ||\n||__||\n|/__\\|\n");
-							printf(" ____ \n||3 ||\n||__||\n|/__\\|\n");
-							printf("\n\nIntroduce S para salir.\n\n");
-							scanf(" %c", &mapaElegido);
-						} while (mapaElegido != '2' && mapaElegido != '3' && mapaElegido != 's');
-					
-						if (mapaElegido == '1' && eleccion == '2') {
-							*m = 21;
-							salir = true;
-							break;
-						}
-						if (mapaElegido == '2' && eleccion == '2') {
-							*m = 22;
-							salir = true;
-							break;
-						}
-						if (mapaElegido == '3' && eleccion == '2') {
-							*m = 23;
-							salir = true;
-							break;
-						}
-						if (mapaElegido == '1' && eleccion == '3') {
-							*m = 31;
-							salir = true;
-							break;
-						}
-						if (mapaElegido == '2' && eleccion == '3') {
-							*m = 32;
-							salir = true;
-							break;
-						}
-						if (mapaElegido == '3' && eleccion == '3') {
-							*m = 33;
-							salir = true;
-							break;
-						}
-						if (mapaElegido == '1' && eleccion == '4') {
-							*m = 41;
-							salir = true;
-							break;
-						}
-						if (mapaElegido == '2' && eleccion == '4') {
-							*m = 42;
-							salir = true;
-							break;
-						}
-						if (mapaElegido == '3' && eleccion == '4') {
-							*m = 43;
-							salir = true;
-							break;
-						}
-					
-					}
-					*/
+					salir = true;
+					break;
 				}
+
+				if (eleccion == '2') {			
+
+					while (*m != '4' && *m != '5' && *m != '6'){
+
+						printf("\e[1;1H\e[2J");
+						printf(" ____ \n||1 ||\n||__|| Map 1. \n|/__\\|\n");
+						printf(" ____ \n||2 ||\n||__|| Map 2. \n|/__\\|\n");
+						printf(" ____ \n||3 ||\n||__|| Map 3. \n|/__\\|\n");
+						printf("\n");
+
+						scanf(" %c", &eleccion);
+						
+						if (eleccion == '1') {
+							*m = '4';									//primer mapa de relleno
+							salir = true;
+							break;
+						}
+						if (eleccion == '2') {
+							*m = '5';									//segundo mapa de relleno
+							salir = true;
+							break;
+						}
+						if (eleccion == '3') {
+							*m = '6';									//tercer mapa de relleno
+							salir = true;
+							break;
+						}
+					}
+				}
+
+				if (eleccion == '3') {
+
+					while(*m != '7' && *m != '8'){
+					
+						printf("\e[1;1H\e[2J");
+						printf(" ____ \n||1 ||\n||__|| Map 1. \n|/__\\|\n");
+						printf(" ____ \n||2 ||\n||__|| Map 2. \n|/__\\|\n");
+						printf("\n");
+
+						scanf(" %c", &eleccion);
+
+						if (eleccion == '1') {
+							*m = '7';									//primer mapa de enemigos
+							salir = true;
+							break;
+						}
+						if (eleccion == '2') {
+							*m = '8';									//segundo mapa de enemigos
+							salir = true;
+							break;
+						}
+					}
+				}
+
+				if (eleccion == '4') {
+
+					*m = '9';										//mapa modo psicodélico
+					salir = true;
+					break;
+
+				}
+
+				if (eleccion == 'E' || eleccion == 'e') {
+
+					salir = false;
+					break;
+					
+				}
+
 			}
 			
 		break;
 
-		case 's':
-		case 'S':										//salir del programa
+		case 'e':
+		case 'E':										//salir del programa
 			salir = true;
 			printf("\e[1;1H\e[2J");
 			exit(0);

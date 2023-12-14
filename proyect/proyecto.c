@@ -10,10 +10,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/////
-///// 	LAS COORDENADAS ESTAN INTERCAMBIADAS, LA X = Y ; LA Y = X.
-/////
-
 #define tamanoy 27
 #define tamanox 50
 
@@ -63,6 +59,20 @@ void dibujarTablero(int tablero[tamanoy][tamanox]) {
         // save zone
         printf("\x1b[32m"
                "\x1b[42m"
+               "  "
+               "\x1b[0m");
+        break;
+      case 8:
+        // azul cian
+        printf("\x1b[36m"
+               "\x1b[46m"
+               "  "
+               "\x1b[0m");
+        break;
+      case 9:
+        // azul 
+        printf("\x1b[30m"
+               "\x1b[40m"
                "  "
                "\x1b[0m");
         break;
@@ -198,9 +208,11 @@ int main() {
     break;
 
   case '7':
-    mapaRelleno1(tablero);
+    mapaRelleno3(tablero);
+     posy = POSICION_INICIAL_PLMANX/2, posx = POSICION_INICIAL_PLMANY/2;
     break;
    case '8':
+
    	mapaRelleno2(tablero);
    	break;
   }
@@ -264,26 +276,26 @@ int main() {
     // movimiento del personaje y colisiones con paredes (1)
     switch (preguntarDireccion()) {
     case 'w':
-      if (tablero[posy - 1][posx] != 1) {
+      if (tablero[posy - 1][posx] != 1 && tablero[posy - 1][posx] != 9&& tablero[posy - 1][posx] != 8) {
         tablero[posy][posx] = 4;
         posy = posy - 1;
       }
       break;
     case 's':
 
-      if (tablero[posy + 1][posx] != 1) {
+      if (tablero[posy + 1][posx] != 1&&tablero[posy + 1][posx] != 9&& tablero[posy + 1][posx] != 8) {
         tablero[posy][posx] = 4;
         posy = posy + 1;
       }
       break;
     case 'd':
-      if (tablero[posy][posx + 1] != 1) {
+      if (tablero[posy][posx + 1] != 1&&tablero[posy][posx+1] != 9&& tablero[posy ][posx+1] != 8) {
         tablero[posy][posx] = 4;
         posx = posx + 1;
       }
       break;
     case 'a':
-      if (tablero[posy][posx - 1] != 1) {
+      if (tablero[posy][posx - 1] != 1 &&tablero[posy ][posx-1] != 9&& tablero[posy ][posx-1] != 8) {
         tablero[posy][posx] = 4;
         posx = posx - 1;
       }

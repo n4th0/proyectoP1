@@ -140,6 +140,7 @@ int main() {
   int posy = POSICION_INICIAL_PLMANX, posx = POSICION_INICIAL_PLMANY;
 
   bool existeSavezone = false;
+  bool stateEasterEgg = false;
 
   struct enemigo enemigo1;
   int estadoEnemigo = 1;
@@ -213,7 +214,8 @@ int main() {
     break;
    case '8':
 
-   	mapaRelleno2(tablero);
+    existeSavezone = true;
+   	psicodeliaMapa(tablero);
    	break;
   }
 
@@ -260,9 +262,24 @@ int main() {
       break;
     case '4':
 
-      copiarAuxiliar(tablero, tableroAuxiliar);
+      if (!stateEasterEgg) {
+        psicodeliaMapa(tablero);
+      
+      }else {
+        //mapa easteregg
+        easterEgg(tablero);
+      
+      }
+      if (posx==48 && posy==1) {
+        stateEasterEgg=true;
+      }
       tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
 
+      break;
+    case '8':
+
+      copiarAuxiliar(tablero, tableroAuxiliar);
+      tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
       break;
     }
 

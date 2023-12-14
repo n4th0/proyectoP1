@@ -103,6 +103,7 @@ int menu(char *m) {		//para realizar el menu
 					}else if (eleccion=='7') {
 						*m='7';
 						salir=true;
+						break;
 					}else if (eleccion=='4') {
 						*m='4';
 						salir=true;

@@ -211,6 +211,7 @@ int main() {
   case '7':
     mapaRelleno3(tablero);
      posy = POSICION_INICIAL_PLMANX/2, posx = POSICION_INICIAL_PLMANY/2;
+
     break;
    case '8':
 

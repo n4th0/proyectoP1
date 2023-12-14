@@ -17,7 +17,7 @@ int menu(char *m) {		//para realizar el menu
   salir = false;
 
 
-	while (salir == false) {
+	while (!salir ) {
 
 		printf("\e[1;1H\e[2J");
 		printf("Initializing...\n");

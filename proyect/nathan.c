@@ -67,7 +67,7 @@ void randomMapa( int tablero2[tamanoy][tamanox]){
 
 }
 
-void mapaRelleno(int tablero[tamanoy][tamanox]){
+void mapaRelleno1(int tablero[tamanoy][tamanox]){
   for (int i = 0; i<tamanoy; i++) {
     for (int j = 0; j<tamanox; j++) {
       if (j%2==0) {
@@ -90,6 +90,3 @@ void mapaRelleno(int tablero[tamanoy][tamanox]){
   }
 
 }
-
-
-

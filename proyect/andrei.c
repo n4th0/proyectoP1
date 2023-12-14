@@ -87,7 +87,7 @@ int menu(char *m) {		//para realizar el menu
 				if (eleccion == 's' || eleccion=='S') salir = false;
 				else if (eleccion == '1' || eleccion == '2' || eleccion == '3' || eleccion == '4' || eleccion=='7') {
 
-					if (eleccion == '1') {
+					if (eleccion == '2') {
 						int a;
 						srand(time(NULL));
 						a = rand()%3;
@@ -102,6 +102,10 @@ int menu(char *m) {		//para realizar el menu
 						break;
 					}else if (eleccion=='7') {
 						*m='7';
+						salir=true;
+						break;
+					}else if (eleccion=='1') {
+						*m='1';
 						salir=true;
 						break;
 					

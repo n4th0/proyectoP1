@@ -4,6 +4,7 @@
 #include "luca.c"
 #include "mapasLaberintos.c"
 #include "nathan.c"
+
 #include <ncurses.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -152,6 +153,7 @@ int main() {
 
   case '1':
     tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
+    existeSavezone = true;
 
     enemigo1.posey = 8;
     enemigo1.posex = 8;
@@ -196,7 +198,7 @@ int main() {
     break;
 
   case '7':
-    mapaRelleno(tablero);
+    mapaRelleno1(tablero);
     break;
   }
 
@@ -310,7 +312,9 @@ int main() {
   if (gameState == 2) {
     printf("Te han matado los enemigos!!!\n");
 
-  } else if (gameState == 3) {
+  } else if (gameState == 3 && existeSavezone) {
+    printf("lo has rellenado entero, enhorabuena!!!\n");
+  } else if (gameState == 3 && !existeSavezone) {
     printf("Has llegado a salvo, enhorabuena!!!\n");
   }
 }

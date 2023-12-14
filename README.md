@@ -9,16 +9,19 @@ Proyecto hehco entre varios compañeros de la UA para la asignatura de programac
 Descarga:
 
     git clone https://github.com/n4th0/proyectoP1.git 
+
 Compilación:
 
-    gcc /proyectoP1/proyect/proyecto.c -lncurses 
+    gcc ./tigr/tigr.c proyecto.c -I./tigr -lGLU -lGL -lX11 -lncurses 
+
 Ejecución:
 
     ./a.out
 
 
-### Archivos escritos por el subnormal de Andrei
+### Archivos escritos por  Andrei
 andrei.c
+mapasLaberinto.c
 
 ### Archivos escritos por Luca
-luca.c
+win.c

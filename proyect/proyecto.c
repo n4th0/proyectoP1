@@ -1,7 +1,7 @@
 
 // incluyo los archivos de mis compañeros
 #include "andrei.c"
-#include "luca.c"
+#include "win.c"
 #include "mapasLaberintos.c"
 #include "nathan.c"
 
@@ -343,11 +343,9 @@ int main() {
   // mensajes de salida (se puede hacer algun patron bonito para celebrar o
   // paralamentar el ganar o perder) @Luca esta es la tuya (lo quiero en gfx )
   if (gameState == 2) {
-    printf("Te han matado los enemigos!!!\n");
+    derrota();
 
-  } else if (gameState == 3 && existeSavezone) {
-    printf("lo has rellenado entero, enhorabuena!!!\n");
-  } else if (gameState == 3 && !existeSavezone) {
-    printf("Has llegado a salvo, enhorabuena!!!\n");
+  } else if (gameState == 3 ) {
+    victoria();
   }
 }

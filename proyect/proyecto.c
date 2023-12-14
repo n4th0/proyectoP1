@@ -200,6 +200,9 @@ int main() {
   case '7':
     mapaRelleno1(tablero);
     break;
+   case '8':
+   	mapaRelleno2(tablero);
+   	break;
   }
 
   do {

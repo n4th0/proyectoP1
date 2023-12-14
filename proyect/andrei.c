@@ -85,7 +85,7 @@ int menu(char *m) {		//para realizar el menu
 				printf(" ____ \n||S ||\n||__|| Volver al menú. \n|/__\\|\n\n");
 				scanf(" %c", &eleccion);
 				if (eleccion == 's' || eleccion=='S') salir = false;
-				else if (eleccion == '1' || eleccion == '2' || eleccion == '3' || eleccion == '4' || eleccion=='7') {
+				else if (eleccion == '1' || eleccion == '2' || eleccion == '3' || eleccion == '4' || eleccion=='7' || eleccion == '8') {
 
 					if (eleccion == '2') {
 						int a;
@@ -102,6 +102,10 @@ int menu(char *m) {		//para realizar el menu
 						break;
 					}else if (eleccion=='7') {
 						*m='7';
+						salir=true;
+						break;
+					}else if (eleccion=='8') {
+						*m='8';
 						salir=true;
 						break;
 					}else if (eleccion=='1') {

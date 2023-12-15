@@ -110,19 +110,18 @@ int menu(char *m) {		//para realizar el menu
 						if (eleccion == '1') {
 							*m = '4';									//primer mapa de relleno
 							salir = true;
-							break;
 						}
 						if (eleccion == '2') {
 							*m = '5';									//segundo mapa de relleno
 							salir = true;
-							break;
 						}
 						if (eleccion == '3') {
 							*m = '6';									//tercer mapa de relleno
 							salir = true;
-							break;
 						}
 					}
+
+					break;
 				}
 
 				if (eleccion == '3') {
@@ -139,14 +138,14 @@ int menu(char *m) {		//para realizar el menu
 						if (eleccion == '1') {
 							*m = '7';									//primer mapa de enemigos
 							salir = true;
-							break;
 						}
 						if (eleccion == '2') {
 							*m = '8';									//segundo mapa de enemigos
 							salir = true;
-							break;
 						}
 					}
+
+					break;
 				}
 
 				if (eleccion == '4') {

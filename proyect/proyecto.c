@@ -3,7 +3,7 @@
 #include "andrei.c"
 #include "mapasLaberintos.c"
 #include "nathan.c"
-#include "win.c"
+#include "luca.c"
 
 #include <ncurses.h>
 #include <stdbool.h>

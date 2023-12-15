@@ -1,7 +1,9 @@
 # proyectoP1
-Proyecto hehco entre varios compañeros de la UA para la asignatura de programación1
+Proyecto hecho entre varios compañeros de la UA para la asignatura de programación1
 
 # MOVE
+
+Un juego en el que debes sortear enemigos, rellenar mapas y escapar de laberintos.
 
 
 ## Para compilar el proyecto:
@@ -12,6 +14,8 @@ Descarga:
 
 Compilación:
 
+    cd proyect/ 
+
     gcc ./tigr/tigr.c proyecto.c -I./tigr -lGLU -lGL -lX11 -lncurses 
 
 Ejecución:
@@ -21,7 +25,8 @@ Ejecución:
 
 ### Archivos escritos por  Andrei
 andrei.c
+
 mapasLaberinto.c
 
 ### Archivos escritos por Luca
-win.c
+luca.c

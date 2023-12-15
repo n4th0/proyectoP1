@@ -40,7 +40,7 @@ void victoria()
     {
         //ponemos las musica
         fflush(stdout);
-        i = system("ffplay audio/audio.mp3 -nodisp -loglevel quiet");
+        i = system("ffplay audio/victoria.mp3 -nodisp -loglevel quiet");
             
     }
     else
@@ -88,7 +88,7 @@ void derrota()
     {
         //ponemos las musica
         fflush(stdout);
-        i = system("ffplay audio/audio.mp3 -nodisp -loglevel quiet");
+        i = system("ffplay audio/derrota.mp3 -nodisp -loglevel quiet");
             
     }
     else

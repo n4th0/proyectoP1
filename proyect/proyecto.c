@@ -1,9 +1,9 @@
 
 // incluyo los archivos de mis compañeros
 #include "andrei.c"
-#include "win.c"
 #include "mapasLaberintos.c"
 #include "nathan.c"
+#include "win.c"
 
 #include <ncurses.h>
 #include <stdbool.h>
@@ -70,7 +70,7 @@ void dibujarTablero(int tablero[tamanoy][tamanox]) {
                "\x1b[0m");
         break;
       case 9:
-        // azul 
+        // azul
         printf("\x1b[30m"
                "\x1b[40m"
                "  "
@@ -163,11 +163,16 @@ int main() {
   switch (opcion) {
 
   case '1':
+    mapaLC(tablero);
+
     tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
     existeSavezone = true;
+    for (int i = 0; i < tamanoy; i++) {
+      for (int j = 0; j < tamanox; j++) {
+        tableroAuxiliar[i][j] = tablero[i][j];
+      }
+    }
 
-    enemigo1.posey = 8;
-    enemigo1.posex = 8;
     break;
 
   case '2':
@@ -197,33 +202,64 @@ int main() {
     break;
 
   case '4':
-    mapaLC(tablero);
+    mapaRelleno1(tablero);
 
-    tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
-    existeSavezone = true;
-    for (int i = 0; i < tamanoy; i++) {
-      for (int j = 0; j < tamanox; j++) {
-        tableroAuxiliar[i][j] = tablero[i][j];
-      }
-    }
     break;
-
-  case '7':
+  case '5':
+    mapaRelleno2(tablero);
+    break;
+  case '6':
     mapaRelleno3(tablero);
-     posy = POSICION_INICIAL_PLMANX/2, posx = POSICION_INICIAL_PLMANY/2;
+    posy = POSICION_INICIAL_PLMANX / 2, posx = POSICION_INICIAL_PLMANY / 2;
+    break;
+  case '7':
+    // mapa enemigo1
+    break;
+
+  case '8':
+    // mapa enemigo2
+    mapa1(tablero);
+    existeSavezone = true;
+
+    enemigo1.posey = 8;
+    enemigo1.posex = 8;
 
     break;
-   case '8':
+  case '9':
 
     existeSavezone = true;
-   	psicodeliaMapa(tablero);
-   	break;
+    psicodeliaMapa(tablero);
+    break;
   }
 
   do {
 
     switch (opcion) {
     case '1':
+
+      copiarAuxiliar(tablero, tableroAuxiliar);
+      tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
+
+      break;
+
+    case '2':
+
+      copiarAuxiliar(tablero, tableroAuxiliar);
+      tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
+
+      break;
+
+    case '3':
+
+      copiarAuxiliar(tablero, tableroAuxiliar);
+      tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
+
+      break;
+    case '7':
+
+      break;
+
+    case '8':
       mapa1(tablero);
 
       tablero[enemigo1.posey][enemigo1.posex] = 2;
@@ -241,45 +277,19 @@ int main() {
         estadoEnemigo = 2;
       }
 
-      // colision enemigo
-      if (enemigo1.posey == posy && enemigo1.posex == posx) {
-        gameState = 2;
-      }
-
       break;
 
-    case '2':
-
-      copiarAuxiliar(tablero, tableroAuxiliar);
-      tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
-
-      break;
-
-    case '3':
-
-      copiarAuxiliar(tablero, tableroAuxiliar);
-      tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
-
-      break;
-    case '4':
-
+    case '9':
       if (!stateEasterEgg) {
         psicodeliaMapa(tablero);
-      
-      }else {
-        //mapa easteregg
+
+      } else {
+        // mapa easteregg
         easterEgg(tablero);
-      
       }
-      if (posx==48 && posy==1) {
-        stateEasterEgg=true;
+      if (posx == 48 && posy == 1) {
+        stateEasterEgg = true;
       }
-      tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
-
-      break;
-    case '8':
-
-      copiarAuxiliar(tablero, tableroAuxiliar);
       tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
       break;
     }
@@ -294,26 +304,30 @@ int main() {
     // movimiento del personaje y colisiones con paredes (1)
     switch (preguntarDireccion()) {
     case 'w':
-      if (tablero[posy - 1][posx] != 1 && tablero[posy - 1][posx] != 9&& tablero[posy - 1][posx] != 8) {
+      if (tablero[posy - 1][posx] != 1 && tablero[posy - 1][posx] != 9 &&
+          tablero[posy - 1][posx] != 8) {
         tablero[posy][posx] = 4;
         posy = posy - 1;
       }
       break;
     case 's':
 
-      if (tablero[posy + 1][posx] != 1&&tablero[posy + 1][posx] != 9&& tablero[posy + 1][posx] != 8) {
+      if (tablero[posy + 1][posx] != 1 && tablero[posy + 1][posx] != 9 &&
+          tablero[posy + 1][posx] != 8) {
         tablero[posy][posx] = 4;
         posy = posy + 1;
       }
       break;
     case 'd':
-      if (tablero[posy][posx + 1] != 1&&tablero[posy][posx+1] != 9&& tablero[posy ][posx+1] != 8) {
+      if (tablero[posy][posx + 1] != 1 && tablero[posy][posx + 1] != 9 &&
+          tablero[posy][posx + 1] != 8) {
         tablero[posy][posx] = 4;
         posx = posx + 1;
       }
       break;
     case 'a':
-      if (tablero[posy][posx - 1] != 1 &&tablero[posy ][posx-1] != 9&& tablero[posy ][posx-1] != 8) {
+      if (tablero[posy][posx - 1] != 1 && tablero[posy][posx - 1] != 9 &&
+          tablero[posy][posx - 1] != 8) {
         tablero[posy][posx] = 4;
         posx = posx - 1;
       }
@@ -335,6 +349,10 @@ int main() {
     if (contadorRelleno == 0 && !existeSavezone) {
       gameState = 3;
     }
+    // colision enemigo
+    if (enemigo1.posey == posy && enemigo1.posex == posx) {
+      gameState = 2;
+    }
 
   } while (gameState == 1);
 
@@ -345,7 +363,7 @@ int main() {
   if (gameState == 2) {
     derrota();
 
-  } else if (gameState == 3 ) {
+  } else if (gameState == 3) {
     victoria();
   }
 }

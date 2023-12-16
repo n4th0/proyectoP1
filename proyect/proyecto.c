@@ -126,6 +126,7 @@ int colisionSave(int posy, int posx, bool existeSavezone) {
     return 1;
   }
 }
+
 int direccionEnemigoRandom(){
     return rand()%4  +1;
 }
@@ -221,12 +222,11 @@ int main() {
     // mapa enemigo1
     enemigosMapa1(tablero);
     existeSavezone = true;
-
     // inicialización de enemigos
     numeroDeEnemigos=57;
+
     // sala 1
     enemigos[0].state=0;
-    enemigos[0].posex=48;
     enemigos[0].posey=23;
     enemigos[1].posex=40; // enemigo2
     enemigos[1].posey=21;
@@ -262,7 +262,6 @@ int main() {
 
     enemigos[19].posex=32; // enemigo20
     enemigos[19].posey=5;
-    
     enemigos[20].posex=32; // enemigo21
     enemigos[20].posey=10;
 
@@ -287,8 +286,6 @@ int main() {
     enemigos[18].posey=16;
 
     // sala 5
-
-
     enemigos[21].state=0;
     enemigos[22].state=0;
     enemigos[23].state=0;

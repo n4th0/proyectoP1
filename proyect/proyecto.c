@@ -227,7 +227,8 @@ int main() {
 
     // sala 1
     enemigos[0].state=0;
-    enemigos[0].posey=23;
+    enemigos[0].posey=23; //enemigo 1
+    enemigos[0].posex=48;
     enemigos[1].posex=40; // enemigo2
     enemigos[1].posey=21;
     enemigos[2].posex=48; // enemigo3 
@@ -370,6 +371,7 @@ int main() {
         enemigos[1].posex--;
         enemigos[3].posex--;
       }
+
       if (enemigos[0].posex==40) {
         enemigos[0].state=1;
       }else if (enemigos[0].posex==48) {

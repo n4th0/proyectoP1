@@ -25,7 +25,7 @@ void derrota();
 void victoria()
 {
     Tigr *screen;
-    Tigr *imagen = tigrLoadImage("./imagenes/Victoria11.png");
+    Tigr *imagen = tigrLoadImage("./imagenes/victoria.png");
     if (!imagen)
     {
         printf("Ha ocurrido un error :(\n");
@@ -73,8 +73,7 @@ void victoria()
 void derrota()
 {
     Tigr *screen;
-    Tigr *imagen = tigrLoadImage("./imagenes/Derrota2.png");
-    if (!imagen)
+    Tigr *imagen = tigrLoadImage("./imagenes/derrota.png");
     {
         printf("Ha ocurrido un error :(\n");
     }

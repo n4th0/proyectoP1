@@ -234,63 +234,63 @@ int main() {
 
     // sala 1
     enemigos[0].state=0;
-    enemigos[0].posey=23; //enemigo 1
+    enemigos[0].posey=23;  
     enemigos[0].posex=48;
-    enemigos[1].posex=40; // enemigo2
+    enemigos[1].posex=40;  
     enemigos[1].posey=21;
-    enemigos[2].posex=48; // enemigo3 
+    enemigos[2].posex=48;   
     enemigos[2].posey=19;  
-    enemigos[3].posex=40; // enemigo4
+    enemigos[3].posex=40;  
     enemigos[3].posey=17;
 
     // sala 2
     enemigos[4].state=0;
     enemigos[5].state=0;
-    enemigos[4].posex=48; // enemigo5
+    enemigos[4].posex=48;  
     enemigos[4].posey=1;
-    enemigos[5].posex=47; // enemigo6
+    enemigos[5].posex=47;  
     enemigos[5].posey=1;
-    enemigos[6].posex=46; // enemigo7
+    enemigos[6].posex=46;  
     enemigos[6].posey=1;
-    enemigos[7].posex=45; // enemigo8
+    enemigos[7].posex=45;  
     enemigos[7].posey=1;
-    enemigos[8].posex=44; // enemigo9
+    enemigos[8].posex=44;  
     enemigos[8].posey=1;
-    enemigos[9].posex=43; // enemigo10
+    enemigos[9].posex=43;  
     enemigos[9].posey=1;
-    enemigos[10].posex=42; // enemigo11
+    enemigos[10].posex=42;  
     enemigos[10].posey=1;
-    enemigos[11].posex=41; // enemigo12
+    enemigos[11].posex=41;  
     enemigos[11].posey=1;
-    enemigos[12].posex=40; // enemigo13
+    enemigos[12].posex=40;  
     enemigos[12].posey=1;
 
 
     // sala 3
 
-    enemigos[19].posex=32; // enemigo20
+    enemigos[19].posex=32;  
     enemigos[19].posey=5;
-    enemigos[20].posex=32; // enemigo21
+    enemigos[20].posex=32;  
     enemigos[20].posey=10;
 
 
     // sala 4
-    enemigos[13].posex=34; // enemigo14
+    enemigos[13].posex=34;  
     enemigos[13].posey=20;
 
-    enemigos[14].posex=34; // enemigo15
+    enemigos[14].posex=34;  
     enemigos[14].posey=16;
 
-    enemigos[15].posex=27; // enemigo16
+    enemigos[15].posex=27;  
     enemigos[15].posey=20;
 
-    enemigos[16].posex=27; // enemigo17
+    enemigos[16].posex=27;  
     enemigos[16].posey=22;
 
-    enemigos[17].posex=27; // enemigo18
+    enemigos[17].posex=27;  
     enemigos[17].posey=18;
 
-    enemigos[18].posex=27; // enemigo19
+    enemigos[18].posex=27;  
     enemigos[18].posey=16;
 
     // sala 5
@@ -300,27 +300,23 @@ int main() {
     enemigos[24].state=0;
 
 
-    enemigos[21].posex=10; // enemigo19
+    enemigos[21].posex=10;  
     enemigos[21].posey=6;
 
-    enemigos[22].posex=20; // enemigo19
+    enemigos[22].posex=20;  
     enemigos[22].posey=6;
 
-    enemigos[23].posex=10; // enemigo19
+    enemigos[23].posex=10;  
     enemigos[23].posey=20;
 
-    enemigos[24].posex=20; // enemigo19
+    enemigos[24].posex=20;  
     enemigos[24].posey=20;
 
-    enemigos[57].posex=10; // enemigo19
+    enemigos[57].posex=10;  
     enemigos[57].posey=13;
 
-    enemigos[58].posex=20; // enemigo19
+    enemigos[58].posex=20;  
     enemigos[58].posey=13;
-
-
-
-
 
     break;
 
@@ -609,21 +605,21 @@ int main() {
       // sala 5
       
       if (enemigos[21].state==0) {
-        enemigos[25].posex=enemigos[21].posex; // enemigo19
+        enemigos[25].posex=enemigos[21].posex;  
         enemigos[25].posey=enemigos[21].posey+2;
-        enemigos[26].posex=enemigos[21].posex; // enemigo19
+        enemigos[26].posex=enemigos[21].posex;  
         enemigos[26].posey=enemigos[21].posey+3;
-        enemigos[27].posex=enemigos[21].posex+2; // enemigo19
+        enemigos[27].posex=enemigos[21].posex+2;  
         enemigos[27].posey=enemigos[21].posey;
-        enemigos[28].posex=enemigos[21].posex+3; // enemigo19
+        enemigos[28].posex=enemigos[21].posex+3;  
         enemigos[28].posey=enemigos[21].posey;
-        enemigos[29].posex=enemigos[21].posex; // enemigo19
+        enemigos[29].posex=enemigos[21].posex;  
         enemigos[29].posey=enemigos[21].posey-2;
-        enemigos[30].posex=enemigos[21].posex; // enemigo19
+        enemigos[30].posex=enemigos[21].posex; 
         enemigos[30].posey=enemigos[21].posey-3;
-        enemigos[31].posex=enemigos[21].posex-2; // enemigo19
+        enemigos[31].posex=enemigos[21].posex-2;  
         enemigos[31].posey=enemigos[21].posey;
-        enemigos[32].posex=enemigos[21].posex-3; // enemigo19
+        enemigos[32].posex=enemigos[21].posex-3;  
         enemigos[32].posey=enemigos[21].posey;
 
         enemigos[21].state++;
@@ -673,21 +669,21 @@ int main() {
 
 
       if (enemigos[22].state==0) {
-        enemigos[33].posex=enemigos[22].posex; // enemigo19
+        enemigos[33].posex=enemigos[22].posex;  
         enemigos[33].posey=enemigos[22].posey+2;
-        enemigos[34].posex=enemigos[22].posex; // enemigo19
+        enemigos[34].posex=enemigos[22].posex;  
         enemigos[34].posey=enemigos[22].posey+3;
-        enemigos[35].posex=enemigos[22].posex+2; // enemigo19
+        enemigos[35].posex=enemigos[22].posex+2;  
         enemigos[35].posey=enemigos[22].posey;
-        enemigos[36].posex=enemigos[22].posex+3; // enemigo19
+        enemigos[36].posex=enemigos[22].posex+3;  
         enemigos[36].posey=enemigos[22].posey;
-        enemigos[37].posex=enemigos[22].posex; // enemigo19
+        enemigos[37].posex=enemigos[22].posex;  
         enemigos[37].posey=enemigos[22].posey-2;
-        enemigos[38].posex=enemigos[22].posex; // enemigo19
+        enemigos[38].posex=enemigos[22].posex;  
         enemigos[38].posey=enemigos[22].posey-3;
-        enemigos[39].posex=enemigos[22].posex-2; // enemigo19
+        enemigos[39].posex=enemigos[22].posex-2;  
         enemigos[39].posey=enemigos[22].posey;
-        enemigos[40].posex=enemigos[22].posex-3; // enemigo19
+        enemigos[40].posex=enemigos[22].posex-3;  
         enemigos[40].posey=enemigos[22].posey;
 
         enemigos[22].state++;
@@ -736,21 +732,21 @@ int main() {
       }
 
       if (enemigos[23].state==0) {
-        enemigos[41].posex=enemigos[23].posex; // enemigo19
+        enemigos[41].posex=enemigos[23].posex;  
         enemigos[41].posey=enemigos[23].posey+2;
-        enemigos[42].posex=enemigos[23].posex; // enemigo19
+        enemigos[42].posex=enemigos[23].posex;  
         enemigos[42].posey=enemigos[23].posey+3;
-        enemigos[43].posex=enemigos[23].posex+2; // enemigo19
+        enemigos[43].posex=enemigos[23].posex+2;  
         enemigos[43].posey=enemigos[23].posey;
-        enemigos[44].posex=enemigos[23].posex+3; // enemigo19
+        enemigos[44].posex=enemigos[23].posex+3;  
         enemigos[44].posey=enemigos[23].posey;
-        enemigos[45].posex=enemigos[23].posex; // enemigo19
+        enemigos[45].posex=enemigos[23].posex;  
         enemigos[45].posey=enemigos[23].posey-2;
-        enemigos[46].posex=enemigos[23].posex; // enemigo19
+        enemigos[46].posex=enemigos[23].posex;  
         enemigos[46].posey=enemigos[23].posey-3;
-        enemigos[47].posex=enemigos[23].posex-2; // enemigo19
+        enemigos[47].posex=enemigos[23].posex-2;  
         enemigos[47].posey=enemigos[23].posey;
-        enemigos[48].posex=enemigos[23].posex-3; // enemigo19
+        enemigos[48].posex=enemigos[23].posex-3;  
         enemigos[48].posey=enemigos[23].posey;
 
         enemigos[23].state++;
@@ -799,21 +795,21 @@ int main() {
       }
 
       if (enemigos[24].state==0) {
-        enemigos[49].posex=enemigos[24].posex; // enemigo19
+        enemigos[49].posex=enemigos[24].posex;  
         enemigos[49].posey=enemigos[24].posey+2;
-        enemigos[50].posex=enemigos[24].posex; // enemigo19
+        enemigos[50].posex=enemigos[24].posex;  
         enemigos[50].posey=enemigos[24].posey+3;
-        enemigos[51].posex=enemigos[24].posex+2; // enemigo19
+        enemigos[51].posex=enemigos[24].posex+2;  
         enemigos[51].posey=enemigos[24].posey;
-        enemigos[52].posex=enemigos[24].posex+3; // enemigo19
+        enemigos[52].posex=enemigos[24].posex+3;  
         enemigos[52].posey=enemigos[24].posey;
-        enemigos[53].posex=enemigos[24].posex; // enemigo19
+        enemigos[53].posex=enemigos[24].posex;  
         enemigos[53].posey=enemigos[24].posey-2;
-        enemigos[54].posex=enemigos[24].posex; // enemigo19
+        enemigos[54].posex=enemigos[24].posex;  
         enemigos[54].posey=enemigos[24].posey-3;
-        enemigos[55].posex=enemigos[24].posex-2; // enemigo19
+        enemigos[55].posex=enemigos[24].posex-2;  
         enemigos[55].posey=enemigos[24].posey;
-        enemigos[56].posex=enemigos[24].posex-3; // enemigo19
+        enemigos[56].posex=enemigos[24].posex-3;  
         enemigos[56].posey=enemigos[24].posey;
 
         enemigos[24].state++;
@@ -862,21 +858,21 @@ int main() {
       }
 
       if (enemigos[57].state==0) {
-        enemigos[59].posex=enemigos[57].posex; // enemigo19
+        enemigos[59].posex=enemigos[57].posex;  
         enemigos[59].posey=enemigos[57].posey+2;
-        enemigos[60].posex=enemigos[57].posex; // enemigo19
+        enemigos[60].posex=enemigos[57].posex;  
         enemigos[60].posey=enemigos[57].posey+3;
-        enemigos[61].posex=enemigos[57].posex+2; // enemigo19
+        enemigos[61].posex=enemigos[57].posex+2;  
         enemigos[61].posey=enemigos[57].posey;
-        enemigos[62].posex=enemigos[57].posex+3; // enemigo19
+        enemigos[62].posex=enemigos[57].posex+3;  
         enemigos[62].posey=enemigos[57].posey;
-        enemigos[63].posex=enemigos[57].posex; // enemigo19
+        enemigos[63].posex=enemigos[57].posex; 
         enemigos[63].posey=enemigos[57].posey-2;
-        enemigos[64].posex=enemigos[57].posex; // enemigo19
+        enemigos[64].posex=enemigos[57].posex;  
         enemigos[64].posey=enemigos[57].posey-3;
-        enemigos[65].posex=enemigos[57].posex-2; // enemigo19
+        enemigos[65].posex=enemigos[57].posex-2;  
         enemigos[65].posey=enemigos[57].posey;
-        enemigos[66].posex=enemigos[57].posex-3; // enemigo19
+        enemigos[66].posex=enemigos[57].posex-3;  
         enemigos[66].posey=enemigos[57].posey;
 
         enemigos[57].state++;
@@ -925,21 +921,21 @@ int main() {
       }
 
       if (enemigos[58].state==0) {
-        enemigos[67].posex=enemigos[58].posex; // enemigo19
+        enemigos[67].posex=enemigos[58].posex;  
         enemigos[67].posey=enemigos[58].posey+2;
-        enemigos[68].posex=enemigos[58].posex; // enemigo19
+        enemigos[68].posex=enemigos[58].posex;  
         enemigos[68].posey=enemigos[58].posey+3;
-        enemigos[69].posex=enemigos[58].posex+2; // enemigo19
+        enemigos[69].posex=enemigos[58].posex+2;  
         enemigos[69].posey=enemigos[58].posey;
-        enemigos[70].posex=enemigos[58].posex+3; // enemigo19
+        enemigos[70].posex=enemigos[58].posex+3;  
         enemigos[70].posey=enemigos[58].posey;
-        enemigos[71].posex=enemigos[58].posex; // enemigo19
+        enemigos[71].posex=enemigos[58].posex;  
         enemigos[71].posey=enemigos[58].posey-2;
-        enemigos[72].posex=enemigos[58].posex; // enemigo19
+        enemigos[72].posex=enemigos[58].posex;  
         enemigos[72].posey=enemigos[58].posey-3;
-        enemigos[73].posex=enemigos[58].posex-2; // enemigo19
+        enemigos[73].posex=enemigos[58].posex-2;  
         enemigos[73].posey=enemigos[58].posey;
-        enemigos[74].posex=enemigos[58].posex-3; // enemigo19
+        enemigos[74].posex=enemigos[58].posex-3;  
         enemigos[74].posey=enemigos[58].posey;
 
         enemigos[58].state++;
@@ -1245,23 +1241,23 @@ int main() {
         enemigos[48].posex = 48;
       }
 
-      //molinos 
+      //molinos = sufrimiento para los desarrolladores
       if (enemigos[49].state==0) {
-        enemigos[51].posex=enemigos[49].posex; // enemigo19
+        enemigos[51].posex=enemigos[49].posex;  
         enemigos[51].posey=enemigos[49].posey+2;
-        enemigos[52].posex=enemigos[49].posex; // enemigo19
+        enemigos[52].posex=enemigos[49].posex;  
         enemigos[52].posey=enemigos[49].posey+3;
-        enemigos[53].posex=enemigos[49].posex+2; // enemigo19
+        enemigos[53].posex=enemigos[49].posex+2;  
         enemigos[53].posey=enemigos[49].posey;
-        enemigos[54].posex=enemigos[49].posex+3; // enemigo19
+        enemigos[54].posex=enemigos[49].posex+3;  
         enemigos[54].posey=enemigos[49].posey;
-        enemigos[55].posex=enemigos[49].posex; // enemigo19
+        enemigos[55].posex=enemigos[49].posex;  
         enemigos[55].posey=enemigos[49].posey-2;
-        enemigos[56].posex=enemigos[49].posex; // enemigo19
+        enemigos[56].posex=enemigos[49].posex;  
         enemigos[56].posey=enemigos[49].posey-3;
-        enemigos[57].posex=enemigos[49].posex-2; // enemigo19
+        enemigos[57].posex=enemigos[49].posex-2;  
         enemigos[57].posey=enemigos[49].posey;
-        enemigos[58].posex=enemigos[49].posex-3; // enemigo19
+        enemigos[58].posex=enemigos[49].posex-3;  
         enemigos[58].posey=enemigos[49].posey;
 
         enemigos[49].state++;
@@ -1310,21 +1306,21 @@ int main() {
       }
       
       if (enemigos[50].state==0) {
-        enemigos[59].posex=enemigos[50].posex; // enemigo19
+        enemigos[59].posex=enemigos[50].posex;  
         enemigos[59].posey=enemigos[50].posey+2;
-        enemigos[60].posex=enemigos[50].posex; // enemigo19
+        enemigos[60].posex=enemigos[50].posex;  
         enemigos[60].posey=enemigos[50].posey+3;
-        enemigos[61].posex=enemigos[50].posex+2; // enemigo19
+        enemigos[61].posex=enemigos[50].posex+2;  
         enemigos[61].posey=enemigos[50].posey;
-        enemigos[62].posex=enemigos[50].posex+3; // enemigo19
+        enemigos[62].posex=enemigos[50].posex+3;  
         enemigos[62].posey=enemigos[50].posey;
-        enemigos[63].posex=enemigos[50].posex; // enemigo19
+        enemigos[63].posex=enemigos[50].posex;  
         enemigos[63].posey=enemigos[50].posey-2;
-        enemigos[64].posex=enemigos[50].posex; // enemigo19
+        enemigos[64].posex=enemigos[50].posex;  
         enemigos[64].posey=enemigos[50].posey-3;
-        enemigos[65].posex=enemigos[50].posex-2; // enemigo19
+        enemigos[65].posex=enemigos[50].posex-2;  
         enemigos[65].posey=enemigos[50].posey;
-        enemigos[66].posex=enemigos[50].posex-3; // enemigo19
+        enemigos[66].posex=enemigos[50].posex-3;  
         enemigos[66].posey=enemigos[50].posey;
 
         enemigos[50].state++;

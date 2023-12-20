@@ -11,7 +11,7 @@ int menu(char *m) {		//para realizar el menu
   bool salir, sinEleccion;
   //salir del programa
   //en caso de que se elija salir del seleccionador de mapas
-  int contador = 1;
+  int contador = 0;
   //para que solo la primera vez se ejecute el sleep()
 
   salir = false;

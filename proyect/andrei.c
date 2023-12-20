@@ -11,7 +11,7 @@ int menu(char *m) {		//para realizar el menu
   bool salir, sinEleccion;
   //salir del programa
   //en caso de que se elija salir del seleccionador de mapas
-  int contador = 0;
+  int contador = 9;
   //para que solo la primera vez se ejecute el sleep()
 
   salir = false;
@@ -52,7 +52,7 @@ int menu(char *m) {		//para realizar el menu
 		case 'I':										//instrucciones
 			contador = 1;
 			printf("\e[1;1H\e[2J");
-			printf("\n\nThe first game mode is called LABIRINTH, and your scope is to solve it. Your character (yellow square) must arrive to the end (green square)."
+			printf("\n\nThe first game mode is called LABYRINTH, and your scope is to solve it. Your character (yellow square) must arrive to the end (green square)."
 			" Each time the map will be generated randomly.\n-------------------------\nThe second game mode is called FILL THE MAP. In this one, you have to "
 			"choose a map between the options and fill it with your colour. To accomplish this, your character will leave a trail behind, marking the gaps you "
 			"stepped over.\n-------------------------\nThe third game mode is called SAFE ZONE, in which you will have to avoid the red enemies that will spawn "
@@ -73,7 +73,7 @@ int menu(char *m) {		//para realizar el menu
 
 
 			printf("\e[1;1H\e[2J");
-			printf(" ____ \n||1 ||\n||__|| Labirinth. \n|/__\\|\n");
+			printf(" ____ \n||1 ||\n||__|| Labyrinth. \n|/__\\|\n");
 			printf(" ____ \n||2 ||\n||__|| Fill the map. \n|/__\\|\n");
 			printf(" ____ \n||3 ||\n||__|| Safe zone. \n|/__\\|\n");
 			printf(" ____ \n||4 ||\n||__|| Psychedelic. \n|/__\\|\n");

@@ -78,6 +78,13 @@ void dibujarTablero(int tablero[tamanoy][tamanox]) {
                "  "
                "\x1b[0m");
         break;
+      case 12:
+        // azul cian
+        printf("\x1b[36m"
+               "\x1b[46m"
+               "  "
+               "\x1b[0m");
+        break;
       default:
         // codigo de error
         printf("\x1b[31m"
@@ -223,7 +230,7 @@ int main() {
     enemigosMapa1(tablero);
     existeSavezone = true;
     // inicialización de enemigos
-    numeroDeEnemigos=57;
+    numeroDeEnemigos=75;
 
     // sala 1
     enemigos[0].state=0;
@@ -292,17 +299,24 @@ int main() {
     enemigos[23].state=0;
     enemigos[24].state=0;
 
+
     enemigos[21].posex=10; // enemigo19
-    enemigos[21].posey=5;
+    enemigos[21].posey=6;
 
     enemigos[22].posex=20; // enemigo19
-    enemigos[22].posey=5;
+    enemigos[22].posey=6;
 
     enemigos[23].posex=10; // enemigo19
     enemigos[23].posey=20;
 
     enemigos[24].posex=20; // enemigo19
     enemigos[24].posey=20;
+
+    enemigos[57].posex=10; // enemigo19
+    enemigos[57].posey=13;
+
+    enemigos[58].posex=20; // enemigo19
+    enemigos[58].posey=13;
 
 
 
@@ -315,7 +329,7 @@ int main() {
     mapaEnemigos2(tablero);
     existeSavezone = true;
     // se inicializan las variables de los enemigos
-    numeroDeEnemigos = 49;
+    numeroDeEnemigos = 67;
 
     enemigos[0].posey = 25;       //enemigo 0, del inicio
     enemigos[0].posex = 40;
@@ -471,6 +485,15 @@ int main() {
     enemigos[48].posex = 3;
 
     //enemigos de la segunda sala grande, el molino
+    
+    enemigos[49].state=0;
+    enemigos[50].state=0;
+
+    enemigos[49].posex=8; // enemigo19
+    enemigos[49].posey=5;
+
+    enemigos[50].posex=15; // enemigo19
+    enemigos[50].posey=5;
 
 
 
@@ -838,15 +861,138 @@ int main() {
         enemigos[24].state=0;
       }
 
+      if (enemigos[57].state==0) {
+        enemigos[59].posex=enemigos[57].posex; // enemigo19
+        enemigos[59].posey=enemigos[57].posey+2;
+        enemigos[60].posex=enemigos[57].posex; // enemigo19
+        enemigos[60].posey=enemigos[57].posey+3;
+        enemigos[61].posex=enemigos[57].posex+2; // enemigo19
+        enemigos[61].posey=enemigos[57].posey;
+        enemigos[62].posex=enemigos[57].posex+3; // enemigo19
+        enemigos[62].posey=enemigos[57].posey;
+        enemigos[63].posex=enemigos[57].posex; // enemigo19
+        enemigos[63].posey=enemigos[57].posey-2;
+        enemigos[64].posex=enemigos[57].posex; // enemigo19
+        enemigos[64].posey=enemigos[57].posey-3;
+        enemigos[65].posex=enemigos[57].posex-2; // enemigo19
+        enemigos[65].posey=enemigos[57].posey;
+        enemigos[66].posex=enemigos[57].posex-3; // enemigo19
+        enemigos[66].posey=enemigos[57].posey;
+
+        enemigos[57].state++;
+      }
+      else if (enemigos[57].state==1) {
+        enemigos[60].posex--;
+        enemigos[62].posey++;
+        enemigos[64].posex++; 
+        enemigos[66].posey--;
+
+        enemigos[57].state++;
+      }
+      else if (enemigos[57].state==2) {
+        enemigos[59].posex--;
+        enemigos[60].posex--;
+        enemigos[61].posey++;
+        enemigos[62].posey++;
+        enemigos[63].posex++; 
+        enemigos[64].posex++; 
+        enemigos[65].posey--;
+        enemigos[66].posey--;
+
+        enemigos[57].state++;
+      }else if (enemigos[57].state==3){
+        enemigos[59].posex--;
+        enemigos[60].posex--;
+        enemigos[61].posey++;
+        enemigos[62].posey++;
+        enemigos[63].posex++; 
+        enemigos[64].posex++; 
+        enemigos[65].posey--;
+        enemigos[66].posey--;
+
+        enemigos[57].state++;
+      }else if (enemigos[57].state==4) {
+        enemigos[59].posey--;
+        enemigos[61].posex--;
+        enemigos[63].posey++;
+        enemigos[65].posex++;
+        enemigos[60].posey--;
+        enemigos[62].posex--;
+        enemigos[64].posey++;
+        enemigos[66].posex++;
+
+        enemigos[57].state=0;
+      }
+
+      if (enemigos[58].state==0) {
+        enemigos[67].posex=enemigos[58].posex; // enemigo19
+        enemigos[67].posey=enemigos[58].posey+2;
+        enemigos[68].posex=enemigos[58].posex; // enemigo19
+        enemigos[68].posey=enemigos[58].posey+3;
+        enemigos[69].posex=enemigos[58].posex+2; // enemigo19
+        enemigos[69].posey=enemigos[58].posey;
+        enemigos[70].posex=enemigos[58].posex+3; // enemigo19
+        enemigos[70].posey=enemigos[58].posey;
+        enemigos[71].posex=enemigos[58].posex; // enemigo19
+        enemigos[71].posey=enemigos[58].posey-2;
+        enemigos[72].posex=enemigos[58].posex; // enemigo19
+        enemigos[72].posey=enemigos[58].posey-3;
+        enemigos[73].posex=enemigos[58].posex-2; // enemigo19
+        enemigos[73].posey=enemigos[58].posey;
+        enemigos[74].posex=enemigos[58].posex-3; // enemigo19
+        enemigos[74].posey=enemigos[58].posey;
+
+        enemigos[58].state++;
+      }
+      else if (enemigos[58].state==1) {
+        enemigos[68].posex--;
+        enemigos[70].posey++;
+        enemigos[72].posex++; 
+        enemigos[74].posey--;
+
+        enemigos[58].state++;
+      }
+      else if (enemigos[58].state==2) {
+        enemigos[67].posex--;
+        enemigos[68].posex--;
+        enemigos[69].posey++;
+        enemigos[70].posey++;
+        enemigos[71].posex++; 
+        enemigos[72].posex++; 
+        enemigos[73].posey--;
+        enemigos[74].posey--;
+
+        enemigos[58].state++;
+      }else if (enemigos[58].state==3){
+        enemigos[67].posex--;
+        enemigos[68].posex--;
+        enemigos[69].posey++;
+        enemigos[70].posey++;
+        enemigos[71].posex++; 
+        enemigos[72].posex++; 
+        enemigos[73].posey--;
+        enemigos[74].posey--;
+
+        enemigos[58].state++;
+      }else if (enemigos[58].state==4) {
+        enemigos[67].posey--;
+        enemigos[68].posey--;
+        enemigos[69].posex--;
+        enemigos[70].posex--;
+        enemigos[71].posey++;
+        enemigos[72].posey++;
+        enemigos[73].posex++;
+        enemigos[74].posex++;
+        enemigos[58].state=0;
+      }
       break;
 
     case '8':
       mapaEnemigos2(tablero);
-
+      tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
       for (int i = 0; i<numeroDeEnemigos; i++){
         tablero[enemigos[i].posey][enemigos[i].posex] = 2;
       }
-      tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
 
       // actualización enemigo 0
       
@@ -1098,7 +1244,133 @@ int main() {
         enemigos[48].posey = 25;
         enemigos[48].posex = 48;
       }
+
+      //molinos 
+      if (enemigos[49].state==0) {
+        enemigos[51].posex=enemigos[49].posex; // enemigo19
+        enemigos[51].posey=enemigos[49].posey+2;
+        enemigos[52].posex=enemigos[49].posex; // enemigo19
+        enemigos[52].posey=enemigos[49].posey+3;
+        enemigos[53].posex=enemigos[49].posex+2; // enemigo19
+        enemigos[53].posey=enemigos[49].posey;
+        enemigos[54].posex=enemigos[49].posex+3; // enemigo19
+        enemigos[54].posey=enemigos[49].posey;
+        enemigos[55].posex=enemigos[49].posex; // enemigo19
+        enemigos[55].posey=enemigos[49].posey-2;
+        enemigos[56].posex=enemigos[49].posex; // enemigo19
+        enemigos[56].posey=enemigos[49].posey-3;
+        enemigos[57].posex=enemigos[49].posex-2; // enemigo19
+        enemigos[57].posey=enemigos[49].posey;
+        enemigos[58].posex=enemigos[49].posex-3; // enemigo19
+        enemigos[58].posey=enemigos[49].posey;
+
+        enemigos[49].state++;
+      }
+      else if (enemigos[49].state==1) {
+        enemigos[52].posex--;
+        enemigos[54].posey++;
+        enemigos[56].posex++; 
+        enemigos[58].posey--;
+
+        enemigos[49].state++;
+      }
+      else if (enemigos[49].state==2) {
+        enemigos[51].posex--;
+        enemigos[52].posex--;
+        enemigos[53].posey++;
+        enemigos[54].posey++;
+        enemigos[55].posex++; 
+        enemigos[56].posex++; 
+        enemigos[57].posey--;
+        enemigos[58].posey--;
+
+        enemigos[49].state++;
+      }else if (enemigos[49].state==3){
+        enemigos[51].posex--;
+        enemigos[52].posex--;
+        enemigos[53].posey++;
+        enemigos[54].posey++;
+        enemigos[55].posex++; 
+        enemigos[56].posex++; 
+        enemigos[57].posey--;
+        enemigos[58].posey--;
+
+        enemigos[49].state++;
+      }else if (enemigos[49].state==4) {
+        enemigos[51].posey--;
+        enemigos[52].posey--;
+        enemigos[53].posex--;
+        enemigos[54].posex--;
+        enemigos[55].posey++;
+        enemigos[56].posey++;
+        enemigos[57].posex++;
+        enemigos[58].posex++;
+
+        enemigos[49].state=0;
+      }
       
+      if (enemigos[50].state==0) {
+        enemigos[59].posex=enemigos[50].posex; // enemigo19
+        enemigos[59].posey=enemigos[50].posey+2;
+        enemigos[60].posex=enemigos[50].posex; // enemigo19
+        enemigos[60].posey=enemigos[50].posey+3;
+        enemigos[61].posex=enemigos[50].posex+2; // enemigo19
+        enemigos[61].posey=enemigos[50].posey;
+        enemigos[62].posex=enemigos[50].posex+3; // enemigo19
+        enemigos[62].posey=enemigos[50].posey;
+        enemigos[63].posex=enemigos[50].posex; // enemigo19
+        enemigos[63].posey=enemigos[50].posey-2;
+        enemigos[64].posex=enemigos[50].posex; // enemigo19
+        enemigos[64].posey=enemigos[50].posey-3;
+        enemigos[65].posex=enemigos[50].posex-2; // enemigo19
+        enemigos[65].posey=enemigos[50].posey;
+        enemigos[66].posex=enemigos[50].posex-3; // enemigo19
+        enemigos[66].posey=enemigos[50].posey;
+
+        enemigos[50].state++;
+      }
+      else if (enemigos[50].state==1) {
+        enemigos[60].posex--;
+        enemigos[62].posey++;
+        enemigos[64].posex++; 
+        enemigos[66].posey--;
+
+        enemigos[50].state++;
+      }
+      else if (enemigos[50].state==2) {
+        enemigos[59].posex--;
+        enemigos[60].posex--;
+        enemigos[61].posey++;
+        enemigos[62].posey++;
+        enemigos[63].posex++; 
+        enemigos[64].posex++; 
+        enemigos[65].posey--;
+        enemigos[66].posey--;
+
+        enemigos[50].state++;
+      }else if (enemigos[50].state==3){
+        enemigos[59].posex--;
+        enemigos[60].posex--;
+        enemigos[61].posey++;
+        enemigos[62].posey++;
+        enemigos[63].posex++; 
+        enemigos[64].posex++; 
+        enemigos[65].posey--;
+        enemigos[66].posey--;
+
+        enemigos[50].state++;
+      }else if (enemigos[50].state==4) {
+        enemigos[59].posey--;
+        enemigos[60].posey--;
+        enemigos[61].posex--;
+        enemigos[62].posex--;
+        enemigos[63].posey++;
+        enemigos[64].posey++;
+        enemigos[65].posex++;
+        enemigos[66].posex++;
+
+        enemigos[50].state=0;
+      }
 
       break;
 
@@ -1175,7 +1447,7 @@ int main() {
     }
 
     // las colisiones con los enemigos para cada mapa
-    if (opcion=='7') {
+    if (opcion=='7' || opcion=='8') {
         for (int i =0 ; i< numeroDeEnemigos ; i++) {
           if (enemigos[i].posex==posx && enemigos[i].posey==posy ) {
             gameState=2;

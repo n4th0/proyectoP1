@@ -207,7 +207,7 @@ int main() {
 
 // mapas de rellenar
   case '4':
-    mapaRelleno1Actu(tablero);
+    mapaRelleno1(tablero);
     break;
   case '5':
     mapaRelleno2(tablero);

@@ -101,7 +101,7 @@ char preguntarDireccion() {
     direccion = getch();
     if (direccion == 'p') {
       printf("\e[1;1H\e[2J");
-      printf("el juego ha sido interrumpido\n");
+      printf("Game has been interrupted.\n");
       endwin();
       exit(0);
     }
@@ -312,14 +312,169 @@ int main() {
 
   case '8':
     // mapa enemigo2
-    mapa1(tablero);
+    mapaEnemigos2(tablero);
     existeSavezone = true;
     // se inicializan las variables de los enemigos
-    enemigos[0].posey = 8;
-    enemigos[0].posex = 8;
-    enemigos[0].state = 1;
+    numeroDeEnemigos = 49;
 
-    break;
+    enemigos[0].posey = 25;       //enemigo 0, del inicio
+    enemigos[0].posex = 40;
+    enemigos[0].state = 0;
+
+    //enemigos de las primeras barras horizontales
+
+    enemigos[1].posey = 22;       //enemigo 1
+    enemigos[1].posex = 45;
+    enemigos[1].state = 0;
+    enemigos[2].posey = 19;       //enemigo 2
+    enemigos[2].posex = 39;
+    enemigos[2].state = 0;
+    enemigos[3].posey = 16;       //enemigo 3
+    enemigos[3].posex = 45;
+    enemigos[3].state = 0;
+
+    //enemigos de la primera sala grande
+
+    enemigos[4].posey = 7;        //enemigo 4
+    enemigos[4].posex = 35;
+    enemigos[4].state = 0;
+    enemigos[5].posey = 7;        //enemigo 5
+    enemigos[5].posex = 35;
+    enemigos[5].state = 0;
+    enemigos[6].posey = 7;        //enemigo 6
+    enemigos[6].posex = 35;
+    enemigos[6].state = 0;
+    enemigos[7].posey = 7;        //enemigo 7
+    enemigos[7].posex = 35;
+    enemigos[7].state = 0;
+    enemigos[8].posey = 7;        //enemigo 8
+    enemigos[8].posex = 35;
+    enemigos[8].state = 0;
+    enemigos[9].posey = 7;        //enemigo 9
+    enemigos[9].posex = 35;
+    enemigos[9].state = 0;
+    enemigos[10].posey = 7;       //enemigo 10
+    enemigos[10].posex = 35;
+    enemigos[10].state = 0;
+    enemigos[11].posey = 7;       //enemigo 11
+    enemigos[11].posex = 35;
+    enemigos[11].state = 0;
+
+    //enemigos de las segundas barras horizontales
+
+    enemigos[12].posey = 16;      //enemigo 12
+    enemigos[12].posex = 31;
+    enemigos[12].state = 0;
+    enemigos[13].posey = 19;      //enemigo 13
+    enemigos[13].posex = 37;
+    enemigos[13].state = 0;
+    enemigos[14].posey = 22;      //enemigo 14
+    enemigos[14].posex = 31;
+    enemigos[14].state = 0;
+
+    //enemigos giratorios del rectángulo
+
+    enemigos[15].posey = 13;      //enemigo 15
+    enemigos[15].posex = 28;
+    enemigos[15].state = 0;
+    enemigos[16].posey = 20;      //enemigo 16
+    enemigos[16].posex = 24;
+    enemigos[16].state = 2;
+
+    //enemigos muy juntos de la izquierda de la primera sala
+
+    enemigos[17].posey = 9;       //enemigo 17
+    enemigos[17].posex = 27;
+    enemigos[17].state = 0;
+    enemigos[18].posey = 8;       //enemigo 18
+    enemigos[18].posex = 27;
+    enemigos[19].posey = 7;       //enemigo 19
+    enemigos[19].posex = 27;
+    enemigos[20].posey = 6;       //enemigo 20
+    enemigos[20].posex = 27;
+    enemigos[21].posey = 5;       //enemigo 21
+    enemigos[21].posex = 27;
+    enemigos[22].posey = 9;       //enemigo 22
+    enemigos[22].posex = 25;
+    enemigos[22].state = 0;
+    enemigos[23].posey = 8;       //enemigo 23
+    enemigos[23].posex = 25;
+    enemigos[24].posey = 7;       //enemigo 24
+    enemigos[24].posex = 25;
+    enemigos[25].posey = 6;       //enemigo 25
+    enemigos[25].posex = 25;
+    enemigos[26].posey = 5;       //enemigo 26
+    enemigos[26].posex = 25;
+
+    //enemigos que van hacia arriba y hacia abajo
+
+    enemigos[27].posey = 13;      //enemigo 27
+    enemigos[27].posex = 19;
+    enemigos[27].state = 0;
+    enemigos[28].posey = 19;      //enemigo 28
+    enemigos[28].posex = 17;
+    enemigos[28].state = 0;
+    enemigos[29].posey = 13;      //enemigo 29
+    enemigos[29].posex = 15;
+    enemigos[30].posey = 19;      //enemigo 30
+    enemigos[30].posex = 13;
+    enemigos[31].posey = 13;      //enemigo 31
+    enemigos[31].posex = 11;
+
+    //enemigos del rectángulo horizontal de abajo
+
+    enemigos[32].posey = 21;      //enemigo 32
+    enemigos[32].posex = 20;
+    enemigos[33].posey = 21;      //enemigo 33
+    enemigos[33].posex = 19;
+    enemigos[34].posey = 21;      //enemigo 34
+    enemigos[34].posex = 18;
+    enemigos[35].posey = 21;      //enemigo 35
+    enemigos[35].posex = 17;
+    enemigos[36].posey = 21;      //enemigo 36
+    enemigos[36].posex = 16;
+    enemigos[37].posey = 21;      //enemigo 37
+    enemigos[37].posex = 15;
+    enemigos[38].posey = 21;      //enemigo 38
+    enemigos[38].posex = 14;
+    enemigos[39].posey = 21;      //enemigo 39
+    enemigos[39].posex = 13;
+    enemigos[39].state = 0;
+    enemigos[40].posey = 25;      //enemigo 40
+    enemigos[40].posex = 12;
+    enemigos[41].posey = 25;      //enemigo 41
+    enemigos[41].posex = 13;
+
+    //enemigos del cuadrado pequeño de la esquina izquierda abajo
+
+    enemigos[42].posey = 22;      //enemigo 42
+    enemigos[42].posex = 4;
+    enemigos[42].state = 0;
+    enemigos[43].posey = 22;      //enemigo 43
+    enemigos[43].posex = 2;
+    enemigos[43].state = 0;
+    enemigos[44].posey = 21;      //enemigo 44
+    enemigos[44].posex = 3;
+    enemigos[44].state = 0;
+    enemigos[45].posey = 20;      //enemigo 45
+    enemigos[45].posex = 4;
+    enemigos[45].state = 0;
+    enemigos[46].posey = 20;      //enemigo 46
+    enemigos[46].posex = 2;
+    enemigos[46].state = 0;
+
+    // enemigos que te dejan pasar a completar el nivel
+
+    enemigos[47].posey = 5;       //enemigo 47
+    enemigos[47].posex = 4;
+    enemigos[48].posey = 5;       //enemigo 48
+    enemigos[48].posex = 3;
+
+    //enemigos de la segunda sala grande, el molino
+
+
+
+  break;
 
 // mapa aleatorio 
   case '9':
@@ -686,22 +841,264 @@ int main() {
       break;
 
     case '8':
-      mapa1(tablero);
+      mapaEnemigos2(tablero);
 
-      tablero[enemigos[0].posey][enemigos[0].posex] = 2;
+      for (int i = 0; i<numeroDeEnemigos; i++){
+        tablero[enemigos[i].posey][enemigos[i].posex] = 2;
+      }
       tablero[POSICION_INICIAL_SAVEZONEX][POSICION_INICIAL_SAVEZONEY] = 4;
 
-      // actualización enemigo 1
-      if (enemigos[0].state == 1) {
-        enemigos[0].posey++;
-      } else if (enemigos[0].state == 2) {
-        enemigos[0].posey--;
+      // actualización enemigo 0
+      
+      if (enemigos[0].state == 0) {
+        enemigos[0].posex++;
+      } else if (enemigos[0].state == 1) {
+        enemigos[0].posex += 0;
       }
-      if (enemigos[0].posey == 1) {
+      if (enemigos[0].posex == 48) {
         enemigos[0].state= 1;
-      } else if (enemigos[0].posey == tamanoy - 2) {
-        enemigos[0].state=2;
       }
+
+      // actualizaciones enemigos 1 a 3
+
+      if (enemigos[1].state == 0) {
+        enemigos[1].posex--;
+      }
+      else if (enemigos[1].state == 1) {
+        enemigos[1].posex++;
+      }
+
+      if(enemigos[1].posex == 39) enemigos[1].state = 1;
+      else if(enemigos[1].posex == 45) enemigos[1].state = 0;
+
+      if (enemigos[2].state == 0) {
+        enemigos[2].posex++;
+      }
+      else if (enemigos[2].state == 1) {
+        enemigos[2].posex--;
+      }
+
+      if(enemigos[2].posex == 45) enemigos[2].state = 1;
+      else if(enemigos[2].posex == 39) enemigos[2].state = 0;
+
+      if (enemigos[3].state == 0) {
+        enemigos[3].posex--;
+      }
+      else if (enemigos[3].state == 1) {
+        enemigos[3].posex++;
+      }
+
+      if(enemigos[3].posex == 39) enemigos[3].state = 1;
+      else if(enemigos[3].posex == 45) enemigos[3].state = 0;
+
+      //actualizaciones enemigos 4 a 11
+      
+      if (enemigos[4].state == 0) enemigos[4].posey++;
+      if (enemigos[4].state == 1) enemigos[4].posey--;
+      if (enemigos[4].posey == 12) enemigos[4].state = 1;
+      if (enemigos[4].posey == 7) enemigos[4].state = 0;
+
+      if (enemigos[5].state == 0) enemigos[5].posex++;
+      if (enemigos[5].state == 1) enemigos[5].posex--;
+      if (enemigos[5].posex == 40) enemigos[5].state = 1;
+      if (enemigos[5].posex == 35) enemigos[5].state = 0;
+
+      if (enemigos[6].state == 0) enemigos[6].posex--;
+      if (enemigos[6].state == 1) enemigos[6].posex++;
+      if (enemigos[6].posex == 30) enemigos[6].state = 1;
+      if (enemigos[6].posex == 35) enemigos[6].state = 0;
+
+      if (enemigos[7].state == 0) enemigos[7].posey--;
+      if (enemigos[7].state == 1) enemigos[7].posey++;
+      if (enemigos[7].posey == 2) enemigos[7].state = 1;
+      if (enemigos[7].posey == 7) enemigos[7].state = 0;
+      
+      if (enemigos[8].state == 0) {
+        enemigos[8].posex++;
+        enemigos[8].posey--;
+      }
+      if (enemigos[8].state == 1) {
+        enemigos[8].posex--;
+        enemigos[8].posey++;
+      }     
+      if (enemigos[8].posey == 2 && enemigos[8].posex == 40) enemigos[8].state = 1;
+      if (enemigos[8].posey == 7 && enemigos[8].posex == 35) enemigos[8].state = 0;
+      
+      if (enemigos[9].state == 0) {
+        enemigos[9].posey--;
+        enemigos[9].posex--;
+      }
+      if (enemigos[9].state == 1) {
+        enemigos[9].posey++;
+        enemigos[9].posex++;
+      }
+      if (enemigos[9].posey == 2 && enemigos[9].posex == 30) enemigos[9].state = 1;
+      if (enemigos[9].posey == 7 && enemigos[9].posex == 35) enemigos[9].state = 0;
+      
+      if (enemigos[10].state == 0) {
+        enemigos[10].posey++;
+        enemigos[10].posex++;
+      }
+      if (enemigos[10].state == 1) {
+        enemigos[10].posey--;
+        enemigos[10].posex--;
+      }
+      if (enemigos[10].posey == 12 && enemigos[10].posex == 40) enemigos[10].state = 1;
+      if (enemigos[10].posey == 7 && enemigos[10].posex == 35) enemigos[10].state = 0;
+
+      if (enemigos[11].state == 0) {
+        enemigos[11].posey++;
+        enemigos[11].posex--;
+      }
+      if (enemigos[11].state == 1) {
+        enemigos[11].posey--;
+        enemigos[11].posex++;
+      }
+      if (enemigos[11].posey == 12 && enemigos[11].posex == 30) enemigos[11].state = 1;
+      if (enemigos[11].posey == 7 && enemigos[11].posex == 35) enemigos[11].state = 0;
+
+      //actualizaciones enemigos 12 a 14
+
+      if (enemigos[12].state == 0) enemigos[12].posex++;
+      if (enemigos[12].state == 1) enemigos[12].posex--;
+      if (enemigos[12].posex == 37) enemigos[12].state = 1;
+      if (enemigos[12].posex == 31) enemigos[12].state = 0;
+
+      if (enemigos[13].state == 0) enemigos[13].posex--;
+      if (enemigos[13].state == 1) enemigos[13].posex++;
+      if (enemigos[13].posex == 31) enemigos[13].state = 1;
+      if (enemigos[13].posex == 37) enemigos[13].state = 0;
+
+      if (enemigos[14].state == 0) enemigos[14].posex++;
+      if (enemigos[14].state == 1) enemigos[14].posex--;
+      if (enemigos[14].posex == 37) enemigos[14].state = 1;
+      if (enemigos[14].posex == 31) enemigos[14].state = 0;
+
+      //actualizaciones enemigos 15 y 16
+
+      if (enemigos[15].state == 0) enemigos[15].posex--;
+      if (enemigos[15].state == 1) enemigos[15].posey++;
+      if (enemigos[15].state == 2) enemigos[15].posex++;
+      if (enemigos[15].state == 3) enemigos[15].posey--;
+
+      if (enemigos[15].posex == 24 && enemigos[15].posey == 13) enemigos[15].state = 1;
+      if (enemigos[15].posex == 24 && enemigos[15].posey == 20) enemigos[15].state = 2;
+      if (enemigos[15].posex == 28 && enemigos[15].posey == 20) enemigos[15].state = 3;
+      if (enemigos[15].posex == 28 && enemigos[15].posey == 13) enemigos[15].state = 0;
+
+      if (enemigos[16].state == 0) enemigos[16].posex--;
+      if (enemigos[16].state == 1) enemigos[16].posey++;
+      if (enemigos[16].state == 2) enemigos[16].posex++;
+      if (enemigos[16].state == 3) enemigos[16].posey--;
+
+      if (enemigos[16].posex == 24 && enemigos[16].posey == 13) enemigos[16].state = 1;
+      if (enemigos[16].posex == 24 && enemigos[16].posey == 20) enemigos[16].state = 2;
+      if (enemigos[16].posex == 28 && enemigos[16].posey == 20) enemigos[16].state = 3;
+      if (enemigos[16].posex == 28 && enemigos[16].posey == 13) enemigos[16].state = 0;
+
+      //actualizacion enemigos 17 a 26
+
+      if (posx == 26 && posy == 7) {
+        if (enemigos[17].state == 0) {
+          for (int i = 17 ; i <= 21 ; i++){
+            enemigos[i].posex--;
+            enemigos[17].state = 1;
+          }
+        }
+      }
+      if (posx == 26 && posy == 7) {
+        if (enemigos[22].state == 0) {
+          for (int i = 22 ; i <= 26 ; i++){
+            enemigos[i].posex++;
+            enemigos[22].state = 1;
+          }
+        }
+      }
+
+      //actualizaciones enemigos 27 a 31
+
+      if (enemigos[27].state == 0) {
+        enemigos[27].posey++;
+        enemigos[29].posey++;
+        enemigos[31].posey++;
+      }
+      if (enemigos[28].state == 0) {
+        enemigos[28].posey--;
+        enemigos[30].posey--;
+      }
+      if (enemigos[27].state == 1) {
+        enemigos[27].posey--;
+        enemigos[29].posey--;
+        enemigos[31].posey--;
+      }
+      if (enemigos[28].state == 1) {
+        enemigos[28].posey++;
+        enemigos[30].posey++;
+      }
+      if (enemigos[27].posey == enemigos[28].posey) {
+        enemigos[27].state = 1;
+        enemigos[28].state = 1;
+      }
+      if (enemigos[27].posey == 13) enemigos[27].state = 0;
+      if (enemigos[28].posey == 19) enemigos[28].state = 0;
+
+      //actualizaciones enemigos 32 a 41
+
+      if (posx == enemigos[39].posex + 2) {
+        if (enemigos[39].state == 0){
+          enemigos[39].posey++;
+          enemigos[39].posey++;
+        }
+      }
+      if (posx == enemigos[39].posex + 1 && posy == enemigos[39].posey) enemigos[39].state = 1;
+      if (enemigos[39].state == 1) {
+        for (int i = 38; i >= 33; i--) {
+          if (posx == enemigos[i].posex) {
+            enemigos[i].posey++;
+            enemigos[i].posey++;
+          }
+        }
+      }
+      if (enemigos[33].posey == 23 && enemigos[39].state == 1) {
+        for (int i = 1; i <= 7; i++) enemigos[32].posex--;
+        enemigos[32].posey++;
+        enemigos[39].state = 2;
+      }
+      if (enemigos[39].state == 2){
+        enemigos[40].posex--;
+        enemigos[40].posey--;
+
+        enemigos[41].posex--;
+        enemigos[41].posex--;
+        enemigos[41].posey--;
+
+        enemigos[39].state = 3;
+      }
+
+      //actualizaciones enemigos 42 a 46
+
+      for (int i = 42; i <= 46; i++) {
+        if (enemigos[i].posey == 20 && enemigos[i].posex == 4) enemigos[i].state = 1;
+        if (enemigos[i].posey == 20 && enemigos[i].posex == 2) enemigos[i].state = 2;
+        if (enemigos[i].posey == 22 && enemigos[i].posex == 2) enemigos[i].state = 3;
+        if (enemigos[i].posey == 22 && enemigos[i].posex == 4) enemigos[i].state = 4;
+
+        if (enemigos[i].state == 1) enemigos[i].posex--;
+        if (enemigos[i].state == 2) enemigos[i].posey++;
+        if (enemigos[i].state == 3) enemigos[i].posex++;
+        if (enemigos[i].state == 4) enemigos[i].posey--;
+      }
+
+      // actualizaciones enemigos 48 y 49
+      
+      if (posx == 17 && posy == 3) {
+        enemigos[47].posey = 25;
+        enemigos[47].posex = 48;
+
+        enemigos[48].posey = 25;
+        enemigos[48].posex = 48;
+      }
+      
 
       break;
 

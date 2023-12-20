@@ -41,7 +41,8 @@ int menu(char *m) {		//para realizar el menu
 		printf("\n ____ \n||I ||\n||__|| Instructions. \n|/__\\|\n");
 		printf(" ____ \n||G ||\n||__|| Game modes. \n|/__\\|\n");
 		printf(" ____ \n||E ||\n||__|| Exit. \n|/__\\|\n");
-		printf("\n");
+		printf("\n\n\n");
+		printf("To select an option, type the letter and press enter.");
 
 		scanf(" %c", &eleccion);
 
@@ -52,12 +53,12 @@ int menu(char *m) {		//para realizar el menu
 			contador = 1;
 			printf("\e[1;1H\e[2J");
 			printf("\n\nThe first game mode is called LABIRINTH, and your scope is to solve it. Your character (yellow square) must arrive to the end (green square)."
-			" Each time the map will be generated randomly, so you won't be able to memorize the solution.\n-------------------------\nThe second game mode is called FILL THE MAP. In this one, you have to "
+			" Each time the map will be generated randomly.\n-------------------------\nThe second game mode is called FILL THE MAP. In this one, you have to "
 			"choose a map between the options and fill it with your colour. To accomplish this, your character will leave a trail behind, marking the gaps you "
-			"stepped over\n-------------------------\nThe third game mode is called SAFE ZONE, in which you will have to avoid the red enemies that will spawn "
-			"in order to reach the green zone and be safe. But be careful, as touching an enemy will end your game. \n-------------------------\nThe fourth and "
+			"stepped over.\n-------------------------\nThe third game mode is called SAFE ZONE, in which you will have to avoid the red enemies that will spawn "
+			"in order to reach the green zone and be safe. But be careful, as touching an enemy will end your game. Also you might find coloured squares, and you will have to step over them in order to open the way to the safe zone. \n-------------------------\nThe fourth and "
 			"last game mode is called PSYCHEDELIC. In this mode your purpose is to reach the green square, but the map will be changing every time you move, so "
-			"you will have to calculate your movement in order to finish correctly.\n-------------------------\nGood luck player, choose whichever game mode drew "
+			"you will have to calculate your movement in order to finish correctly. \n-------------------------\nYour movement will be controlled with the WASD keys. Press W to move up, D to go right, S to move down and lastly A to go left. You can press P whenever you want to exit the game.\n-------------------------\nGood luck player, choose whichever game mode drew "
 			"your attention and play it as many times as you like.\n\n\n\n\n\n\n\n\n\nAnd... Who knows... If you are discerning enough"
 			"... You might find our little secret.\n-------------------------\nSincerely, the developers.");
 			
